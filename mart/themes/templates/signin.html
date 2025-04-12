@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Geco Mart - Your Products{% endblock %}
+
+{% block content %}
+<section class="py-12">
+    <div class="container mx-auto px-4">
+        <div class="max-w-md mx-auto bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="p-6">
+                <div class="text-center mb-8">
+                    <h1 class="text-2xl font-bold text-gray-800">Login to Your Account</h1>
+                    <p class="text-gray-600 mt-2">Welcome back! Please enter your details.</p>
+                </div>
+                
+                <!-- Login Tabs -->
+                <div class="flex border-b border-gray-200 mb-6">
+                    <button class="px-4 py-2 border-b-2 border-primary text-primary font-semibold flex-1" id="tab-user">User Login</button>
+                    <button class="px-4 py-2 text-gray-600 font-semibold flex-1" id="tab-vendor">Vendor Login</button>
+                </div>
+                
+                <!-- User Login Form -->
+                <form id="user-login-form" class="block">
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                        <input type="email" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary" required>
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                        <input type="password" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary" required>
+                        <div class="flex justify-end mt-1">
+                            <a href="#" class="text-sm text-primary hover:underline">Forgot password?</a>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="rounded text-primary focus:ring-primary">
+                            <span class="ml-2 text-sm text-gray-700">Remember me</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="w-full bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition">Sign In</button>
+                    
+                    <div class="mt-6 text-center">
+                        <p class="text-sm text-gray-600">Don't have an account? <a href="{% url "signup" %}" class="text-primary font-semibold hover:underline">Sign up</a></p>
+                    </div>
+                </form>
+                
+                <!-- Vendor Login Form (Hidden by default) -->
+                <form id="vendor-login-form" class="hidden">
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Vendor ID</label>
+                        <input type="text" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                        <input type="email" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary" required>
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                        <input type="password" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary" required>
+                        <div class="flex justify-end mt-1">
+                            <a href="#" class="text-sm text-primary hover:underline">Forgot password?</a>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="rounded text-primary focus:ring-primary">
+                            <span class="ml-2 text-sm text-gray-700">Remember me</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="w-full bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition">Vendor Sign In</button>
+                    
+                    <div class="mt-6 text-center">
+                        <p class="text-sm text-gray-600">Need vendor access? <a href="{% url "support" %}" class="text-primary font-semibold hover:underline">Contact support</a></p>
+                    </div>
+                </form>
+                
+                <!-- Social Login -->
+                <div class="mt-8">
+                    <div class="relative">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-gray-300"></div>
+                        </div>
+                        <div class="relative flex justify-center text-sm">
+                            <span class="px-2 bg-white text-gray-500">Or continue with</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 grid grid-cols-3 gap-3">
+                        <button class="flex justify-center items-center py-2 px-4 border rounded-md shadow-sm bg-white hover:bg-gray-50">
+                            <i class="fab fa-google text-red-500"></i>
+                        </button>
+                        <button class="flex justify-center items-center py-2 px-4 border rounded-md shadow-sm bg-white hover:bg-gray-50">
+                            <i class="fab fa-facebook-f text-blue-600"></i>
+                        </button>
+                        <button class="flex justify-center items-center py-2 px-4 border rounded-md shadow-sm bg-white hover:bg-gray-50">
+                            <i class="fab fa-apple text-gray-800"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+        // Mobile menu toggle
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+      // Login tabs toggle
+const tabUser = document.getElementById('tab-user');
+const tabVendor = document.getElementById('tab-vendor');
+const userLoginForm = document.getElementById('user-login-form');
+const vendorLoginForm = document.getElementById('vendor-login-form');
+
+tabUser.addEventListener('click', function() {
+    // Update tab styles
+    tabUser.classList.add('border-b-2', 'border-primary', 'text-primary');
+    tabUser.classList.remove('text-gray-600');
+    tabVendor.classList.remove('border-b-2', 'border-primary', 'text-primary');
+    tabVendor.classList.add('text-gray-600');
+    
+    // Switch forms
+    userLoginForm.classList.remove('hidden');
+    vendorLoginForm.classList.add('hidden');
+});
+
+tabVendor.addEventListener('click', function() {
+    // Update tab styles
+    tabVendor.classList.add('border-b-2', 'border-primary', 'text-primary');
+    tabVendor.classList.remove('text-gray-600');
+    tabUser.classList.remove('border-b-2', 'border-primary', 'text-primary');
+    tabUser.classList.add('text-gray-600');
+    
+    // Switch forms
+    vendorLoginForm.classList.remove('hidden');
+    userLoginForm.classList.add('hidden');
+});
+</script>
+{% endblock scripts %}

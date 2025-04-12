@@ -1,0 +1,294 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Geco Mart - Your Products{% endblock %}
+
+{% block content %}
+ <!-- Support Hero Section -->
+ <section class="py-12 bg-gradient-to-r from-primary to-green-800 text-white">
+    <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto text-center">
+            <h1 class="text-4xl font-bold mb-4">How Can We Help You?</h1>
+            <p class="text-xl mb-8">Our support team is here to assist you with any questions or issues you may have.</p>
+            <div class="relative max-w-xl mx-auto">
+                <input type="text" placeholder="Search for answers..." class="w-full px-6 py-4 rounded-full focus:outline-none focus:ring-2 focus:ring-white text-gray-800">
+                <button class="absolute right-3 top-3 bg-primary text-white p-2 rounded-full hover:bg-green-700 transition">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Support Options -->
+<section class="py-12">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Contact Support -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center text-white mx-auto mb-6">
+                    <i class="fas fa-headset text-2xl"></i>
+                </div>
+                <h2 class="text-xl font-semibold text-center mb-4">Contact Support</h2>
+                <p class="text-gray-600 text-center mb-6">Get in touch with our customer support team for personalized assistance.</p>
+                <a href="#contact-form" class="block text-center bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition">Contact Us</a>
+            </div>
+            
+            <!-- FAQs -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center text-white mx-auto mb-6">
+                    <i class="fas fa-question-circle text-2xl"></i>
+                </div>
+                <h2 class="text-xl font-semibold text-center mb-4">Frequently Asked Questions</h2>
+                <p class="text-gray-600 text-center mb-6">Find quick answers to common questions about our products and services.</p>
+                <a href="#faqs" class="block text-center bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition">View FAQs</a>
+            </div>
+            
+            <!-- Help Center -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center text-white mx-auto mb-6">
+                    <i class="fas fa-book text-2xl"></i>
+                </div>
+                <h2 class="text-xl font-semibold text-center mb-4">Help Center</h2>
+                <p class="text-gray-600 text-center mb-6">Browse our comprehensive guides and tutorials for detailed information.</p>
+                <a href="#" class="block text-center bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition">Visit Help Center</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQs Section -->
+<section id="faqs" class="py-12 bg-gray-100">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-8 text-center">Frequently Asked Questions</h2>
+        
+        <div class="max-w-3xl mx-auto">
+            <!-- FAQ Categories -->
+            <div class="flex flex-wrap justify-center mb-8">
+                <button class="m-1 px-4 py-2 bg-primary text-white rounded-full">All</button>
+                <button class="m-1 px-4 py-2 bg-white text-gray-700 rounded-full hover:bg-gray-200 transition">Orders</button>
+                <button class="m-1 px-4 py-2 bg-white text-gray-700 rounded-full hover:bg-gray-200 transition">Shipping</button>
+                <button class="m-1 px-4 py-2 bg-white text-gray-700 rounded-full hover:bg-gray-200 transition">Returns</button>
+                <button class="m-1 px-4 py-2 bg-white text-gray-700 rounded-full hover:bg-gray-200 transition">Payment</button>
+                <button class="m-1 px-4 py-2 bg-white text-gray-700 rounded-full hover:bg-gray-200 transition">Account</button>
+            </div>
+            
+            <!-- FAQ Items -->
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                        <span>How do I track my order?</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="px-6 py-4 border-t hidden">
+                        <p class="text-gray-600">You can track your order by logging into your account and navigating to the "Orders" section. There, you'll find a list of all your orders and their current status. Alternatively, you can use the tracking number provided in your shipping confirmation email to track your package directly on the carrier's website.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                        <span>What is your return policy?</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="px-6 py-4 border-t hidden">
+                        <p class="text-gray-600">We offer a 30-day return policy for most products. To be eligible for a return, your item must be unused and in the same condition that you received it. It must also be in the original packaging. Some products, such as perishable goods, intimate items, and downloadable software, are not eligible for return. Please see our full return policy for more details.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                        <span>How long does shipping take?</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="px-6 py-4 border-t hidden">
+                        <p class="text-gray-600">Shipping times vary depending on your location and the shipping method selected at checkout. Standard shipping typically takes 3-7 business days within the continental United States. Expedited shipping options are available for faster delivery. International shipping may take 7-21 business days, depending on the destination country and customs processing.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                        <span>What payment methods do you accept?</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="px-6 py-4 border-t hidden">
+                        <p class="text-gray-600">We accept a variety of payment methods to make your shopping experience convenient. These include major credit cards (Visa, MasterCard, American Express, Discover), PayPal, Apple Pay, and Google Pay. For select items, we also offer financing options through our partner services. All payment information is securely processed and encrypted.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 5 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                        <span>How do I reset my password?</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="px-6 py-4 border-t hidden">
+                        <p class="text-gray-600">To reset your password, click on the "Account" icon in the top right corner of the website, then select "Forgot Password" on the login page. Enter the email address associated with your account, and we'll send you a password reset link. Follow the instructions in the email to create a new password. If you don't receive the email, please check your spam folder or contact our support team for assistance.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center">
+                <a href="#" class="text-primary font-semibold hover:underline">View All FAQs <i class="fas fa-arrow-right ml-1"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Form Section -->
+<section id="contact-form" class="py-12">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-8 text-center">Get in Touch</h2>
+        
+        <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/3 bg-primary p-8 text-white">
+                    <h3 class="text-xl font-semibold mb-4">Contact Information</h3>
+                    <p class="mb-6">Have questions or need assistance? Fill out the form and our support team will get back to you as soon as possible.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
+                            <span>123 Shopping St, Commerce City</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-phone mt-1 mr-3"></i>
+                            <span>+1 234 567 8900</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3"></i>
+                            <span>support@gecomart.com</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-clock mt-1 mr-3"></i>
+                            <span>Mon-Fri: 9AM - 6PM</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="text-lg font-semibold mb-3">Follow Us</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-white hover:text-gray-200"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="text-white hover:text-gray-200"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-white hover:text-gray-200"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-white hover:text-gray-200"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-2/3 p-8">
+                    <form>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">First Name *</label>
+                                <input type="text" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Last Name *</label>
+                                <input type="text" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
+                                <input type="email" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                                <input type="tel" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Subject *</label>
+                            <select class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary" required>
+                                <option value="">Select a subject</option>
+                                <option value="order">Order Inquiry</option>
+                                <option value="shipping">Shipping & Delivery</option>
+                                <option value="return">Returns & Refunds</option>
+                                <option value="product">Product Information</option>
+                                <option value="account">Account Issues</option>
+                                <option value="payment">Payment Problems</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Message *</label>
+                            <textarea rows="5" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary" required></textarea>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="flex items-center">
+                                <input type="checkbox" class="rounded text-primary focus:ring-primary" required>
+                                <span class="ml-2 text-sm text-gray-700">I agree to the <a href="terms.html" class="text-primary hover:underline">Terms and Conditions</a> and <a href="#" class="text-primary hover:underline">Privacy Policy</a>.</span>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Live Chat Section -->
+<section class="py-12 bg-gray-100">
+    <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto text-center">
+            <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center text-white mx-auto mb-6">
+                <i class="fas fa-comments text-3xl"></i>
+            </div>
+            <h2 class="text-3xl font-bold mb-4">Need Immediate Assistance?</h2>
+            <p class="text-xl text-gray-600 mb-8">Our live chat support is available to help you in real-time during business hours.</p>
+            <button class="bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-green-700 transition text-lg">
+                <i class="fas fa-comment-dots mr-2"></i> Start Live Chat
+            </button>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+       // Mobile menu toggle
+       document.getElementById('menuToggle').addEventListener('click', function() {
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenu.classList.toggle('hidden');
+    });
+    
+    // FAQ toggle function
+    function toggleFAQ(element) {
+        const content = element.nextElementSibling;
+        const icon = element.querySelector('i');
+        
+        content.classList.toggle('hidden');
+        icon.classList.toggle('rotate-180');
+        
+        // Close other FAQs
+        const allFAQs = document.querySelectorAll('.bg-white.rounded-lg.shadow-md.overflow-hidden');
+        allFAQs.forEach(faq => {
+            const faqContent = faq.querySelector('.px-6.py-4.border-t');
+            const faqIcon = faq.querySelector('i');
+            
+            if (faqContent !== content) {
+                faqContent.classList.add('hidden');
+                faqIcon.classList.remove('rotate-180');
+            }
+        });
+    }
+    
+    // Form submission
+    const form = document.querySelector('form');
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Show success message
+        alert('Thank you for your message! Our support team will get back to you shortly.');
+        form.reset();
+    }); 
+</script>
+{% endblock %}

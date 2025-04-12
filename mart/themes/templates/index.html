@@ -1,0 +1,752 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home - Your Site{% endblock %}
+
+{% block content %}
+   <!-- Hero Section with Slideshow -->
+   <section class="bg-gradient-to-r from-primary to-green-800 text-white py-12 relative overflow-hidden">
+    <div class="container mx-auto px-4">
+        <!-- Slideshow container -->
+        <div class="slideshow-container relative">
+            <!-- Slide 1 -->
+            <div class="hero-slide fade">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-8 md:mb-0">
+                        <h2 class="text-4xl font-bold mb-4">Shop the Latest Trends</h2>
+                        <p class="text-xl mb-6">Discover amazing products at unbeatable prices at Geco Mart.</p>
+                        <div class="flex space-x-4">
+                            <a href="products.html" class="bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">Shop Now</a>
+                            <a href="categories.html" class="bg-secondary text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition">Browse Categories</a>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <img src="https://placehold.co/600x400/166534/FFFFFF?text=Geco+Mart" alt="Shopping" class="rounded-lg shadow-lg">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="hero-slide fade">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-8 md:mb-0">
+                        <h2 class="text-4xl font-bold mb-4">Summer Collection 2025</h2>
+                        <p class="text-xl mb-6">Beat the heat with our exclusive summer collection. Trendy and comfortable.</p>
+                        <div class="flex space-x-4">
+                            <a href="products.html?collection=summer" class="bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">View Collection</a>
+                            <a href="categories.html" class="bg-secondary text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition">See More</a>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <img src="https://placehold.co/600x400/166534/FFFFFF?text=Summer+Collection" alt="Summer Collection" class="rounded-lg shadow-lg">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="hero-slide fade">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-8 md:mb-0">
+                        <h2 class="text-4xl font-bold mb-4">Tech Gadgets Sale</h2>
+                        <p class="text-xl mb-6">Up to 40% off on the latest smartphones, laptops, and accessories.</p>
+                        <div class="flex space-x-4">
+                            <a href="products.html?category=tech" class="bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">Shop Tech</a>
+                            <a href="categories.html" class="bg-secondary text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition">All Deals</a>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <img src="https://placehold.co/600x400/166534/FFFFFF?text=Tech+Gadgets" alt="Tech Gadgets" class="rounded-lg shadow-lg">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Next and previous buttons -->
+            <a class="prev absolute top-1/2 left-0 transform -translate-y-1/2 bg-black bg-opacity-30 text-white cursor-pointer p-4 rounded-r-lg hover:bg-opacity-50 z-10">
+                <i class="fas fa-chevron-left"></i>
+            </a>
+            <a class="next absolute top-1/2 right-0 transform -translate-y-1/2 bg-black bg-opacity-30 text-white cursor-pointer p-4 rounded-l-lg hover:bg-opacity-50 z-10">
+                <i class="fas fa-chevron-right"></i>
+            </a>
+        </div>
+
+        <!-- The dots/circles -->
+        <div class="dots-container text-center mt-4">
+            <span class="dot cursor-pointer h-3 w-3 rounded-full inline-block mx-1 bg-white bg-opacity-50"></span>
+            <span class="dot cursor-pointer h-3 w-3 rounded-full inline-block mx-1 bg-white bg-opacity-50"></span>
+            <span class="dot cursor-pointer h-3 w-3 rounded-full inline-block mx-1 bg-white bg-opacity-50"></span>
+        </div>
+    </div>
+</section>
+<!-- Add this after the Hero Section and before the Categories Section -->
+
+<!-- Promotional Banners Section -->
+<section class="py-8 bg-white">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-6 text-center">Featured Promotions</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <!-- Banner 1 -->
+            <div class="bg-gradient-to-r from-blue-500 to-blue-700 rounded-lg shadow-md overflow-hidden relative">
+                <div class="p-6 text-white">
+                    <h3 class="text-xl font-bold mb-2">Summer Sale</h3>
+                    <p class="mb-4">Up to 50% off on summer essentials</p>
+                    <a href="#" class="bg-white text-blue-700 px-4 py-2 rounded-lg font-semibold hover:bg-gray-100 transition">Shop Now</a>
+                </div>
+                <img src="https://placehold.co/400x200?text=Summer+Sale" alt="Summer Sale" class="absolute right-0 bottom-0 w-1/3 h-auto object-cover opacity-50 md:opacity-80">
+            </div>
+            
+            <!-- Banner 2 -->
+            <div class="bg-gradient-to-r from-purple-500 to-purple-700 rounded-lg shadow-md overflow-hidden relative">
+                <div class="p-6 text-white">
+                    <h3 class="text-xl font-bold mb-2">New Electronics</h3>
+                    <p class="mb-4">Latest gadgets now available</p>
+                    <a href="#" class="bg-white text-purple-700 px-4 py-2 rounded-lg font-semibold hover:bg-gray-100 transition">Explore</a>
+                </div>
+                <img src="https://placehold.co/400x200?text=Electronics" alt="Electronics" class="absolute right-0 bottom-0 w-1/3 h-auto object-cover opacity-50 md:opacity-80">
+            </div>
+            
+            <!-- Banner 3 -->
+            <div class="bg-gradient-to-r from-amber-500 to-amber-700 rounded-lg shadow-md overflow-hidden relative">
+                <div class="p-6 text-white">
+                    <h3 class="text-xl font-bold mb-2">Flash Deals</h3>
+                    <p class="mb-4">24-hour limited time offers</p>
+                    <a href="#" class="bg-white text-amber-700 px-4 py-2 rounded-lg font-semibold hover:bg-gray-100 transition">View Deals</a>
+                </div>
+                <img src="https://placehold.co/400x200?text=Flash+Deals" alt="Flash Deals" class="absolute right-0 bottom-0 w-1/3 h-auto object-cover opacity-50 md:opacity-80">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Add this after the Featured Products section and before the Special Offers section -->
+
+<!-- Store Owners Spotlight -->
+<section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-8 text-center">Featured Vendors</h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <!-- Vendor 1 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="h-40 bg-primary flex items-center justify-center">
+                    <img src="https://placehold.co/200x200?text=TechHub" alt="TechHub" class="h-24 w-24 rounded-full border-4 border-white">
+                </div>
+                <div class="p-4 text-center">
+                    <h3 class="font-semibold text-lg mb-1">TechHub</h3>
+                    <p class="text-gray-600 text-sm mb-3">Premium Electronics & Gadgets</p>
+                    <div class="flex justify-center space-x-1 mb-3">
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-yellow-400"><i class="fas fa-star-half-alt"></i></span>
+                        <span class="text-gray-600 text-sm ml-1">(4.5)</span>
+                    </div>
+                    <a href="vendors.html?id=techhub" class="text-primary hover:underline">Visit Store</a>
+                </div>
+            </div>
+            
+            <!-- Vendor 2 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="h-40 bg-secondary flex items-center justify-center">
+                    <img src="https://placehold.co/200x200?text=Fashionista" alt="Fashionista" class="h-24 w-24 rounded-full border-4 border-white">
+                </div>
+                <div class="p-4 text-center">
+                    <h3 class="font-semibold text-lg mb-1">Fashionista</h3>
+                    <p class="text-gray-600 text-sm mb-3">Trendy Clothing & Accessories</p>
+                    <div class="flex justify-center space-x-1 mb-3">
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-gray-600 text-sm ml-1">(5.0)</span>
+                    </div>
+                    <a href="vendors.html?id=fashionista" class="text-primary hover:underline">Visit Store</a>
+                </div>
+            </div>
+            
+            <!-- Vendor 3 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="h-40 bg-green-700 flex items-center justify-center">
+                    <img src="https://placehold.co/200x200?text=HomeDecor" alt="HomeDecor" class="h-24 w-24 rounded-full border-4 border-white">
+                </div>
+                <div class="p-4 text-center">
+                    <h3 class="font-semibold text-lg mb-1">HomeDecor</h3>
+                    <p class="text-gray-600 text-sm mb-3">Stylish Home & Living Products</p>
+                    <div class="flex justify-center space-x-1 mb-3">
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-gray-400"><i class="far fa-star"></i></span>
+                        <span class="text-gray-600 text-sm ml-1">(4.0)</span>
+                    </div>
+                    <a href="vendors.html?id=homedecor" class="text-primary hover:underline">Visit Store</a>
+                </div>
+            </div>
+            
+            <!-- Vendor 4 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="h-40 bg-blue-700 flex items-center justify-center">
+                    <img src="https://placehold.co/200x200?text=KidZone" alt="KidZone" class="h-24 w-24 rounded-full border-4 border-white">
+                </div>
+                <div class="p-4 text-center">
+                    <h3 class="font-semibold text-lg mb-1">KidZone</h3>
+                    <p class="text-gray-600 text-sm mb-3">Toys & Children's Products</p>
+                    <div class="flex justify-center space-x-1 mb-3">
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-yellow-400"><i class="fas fa-star-half-alt"></i></span>
+                        <span class="text-gray-400"><i class="far fa-star"></i></span>
+                        <span class="text-gray-600 text-sm ml-1">(3.5)</span>
+                    </div>
+                    <a href="vendors.html?id=kidzone" class="text-primary hover:underline">Visit Store</a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-8">
+            <a href="vendors.html" class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition">View All Vendors</a>
+        </div>
+    </div>
+</section>
+
+<!-- Add this after the Special Offers section and before the Newsletter section -->
+
+<!-- Full-width Banner -->
+<section class="py-8 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="relative rounded-lg overflow-hidden">
+            <img src="https://placehold.co/1200x300?text=Special+Collection" alt="Special Collection" class="w-full h-auto object-cover">
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center">
+                <div class="px-8 md:px-16 max-w-lg">
+                    <h2 class="text-white text-3xl md:text-4xl font-bold mb-4">Exclusive Collection</h2>
+                    <p class="text-white text-lg mb-6">Discover our handpicked selection of premium products from top brands around the world.</p>
+                    <a href="collections.html" class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition">Explore Collection</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Categories Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-8 text-center">Shop by Category</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
+                <a href="categories.html?cat=womens" class="bg-gray-100 rounded-lg p-4 text-center hover:shadow-md transition">
+                    <img src="https://placehold.co/200x200?text=Women's" alt="Women's Clothing" class="w-full h-32 object-cover rounded mb-2">
+                    <span class="font-medium">Women's Clothing</span>
+                </a>
+                <a href="categories.html?cat=mens" class="bg-gray-100 rounded-lg p-4 text-center hover:shadow-md transition">
+                    <img src="https://placehold.co/200x200?text=Men's" alt="Men's Clothing" class="w-full h-32 object-cover rounded mb-2">
+                    <span class="font-medium">Men's Clothing</span>
+                </a>
+                <a href="categories.html?cat=kids" class="bg-gray-100 rounded-lg p-4 text-center hover:shadow-md transition">
+                    <img src="https://placehold.co/200x200?text=Kids" alt="Kids Clothing" class="w-full h-32 object-cover rounded mb-2">
+                    <span class="font-medium">Kids Clothing</span>
+                </a>
+                <a href="categories.html?cat=phones" class="bg-gray-100 rounded-lg p-4 text-center hover:shadow-md transition">
+                    <img src="https://placehold.co/200x200?text=Phones" alt="Cell Phones" class="w-full h-32 object-cover rounded mb-2">
+                    <span class="font-medium">Cell Phones</span>
+                </a>
+                <a href="categories.html?cat=laptops" class="bg-gray-100 rounded-lg p-4 text-center hover:shadow-md transition">
+                    <img src="https://placehold.co/200x200?text=Laptops" alt="Laptops" class="w-full h-32 object-cover rounded mb-2">
+                    <span class="font-medium">Laptops</span>
+                </a>
+                <a href="categories.html?cat=accessories" class="bg-gray-100 rounded-lg p-4 text-center hover:shadow-md transition">
+                    <img src="https://placehold.co/200x200?text=Accessories" alt="Accessories" class="w-full h-32 object-cover rounded mb-2">
+                    <span class="font-medium">Accessories</span>
+                </a>
+                <a href="categories.html?cat=school" class="bg-gray-100 rounded-lg p-4 text-center hover:shadow-md transition">
+                    <img src="https://placehold.co/200x200?text=School" alt="School Essentials" class="w-full h-32 object-cover rounded mb-2">
+                    <span class="font-medium">School Essentials</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add this after the Hero Section and before the Categories Section -->
+
+<!-- Promotional Banners Section -->
+<section class="py-8 bg-white">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-6 text-center">Featured Promotions</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <!-- Banner 1 -->
+            <div class="bg-gradient-to-r from-blue-500 to-blue-700 rounded-lg shadow-md overflow-hidden relative">
+                <div class="p-6 text-white">
+                    <h3 class="text-xl font-bold mb-2">Summer Sale</h3>
+                    <p class="mb-4">Up to 50% off on summer essentials</p>
+                    <a href="#" class="bg-white text-blue-700 px-4 py-2 rounded-lg font-semibold hover:bg-gray-100 transition">Shop Now</a>
+                </div>
+                <img src="https://placehold.co/400x200?text=Summer+Sale" alt="Summer Sale" class="absolute right-0 bottom-0 w-1/3 h-auto object-cover opacity-50 md:opacity-80">
+            </div>
+            
+            <!-- Banner 2 -->
+            <div class="bg-gradient-to-r from-purple-500 to-purple-700 rounded-lg shadow-md overflow-hidden relative">
+                <div class="p-6 text-white">
+                    <h3 class="text-xl font-bold mb-2">New Electronics</h3>
+                    <p class="mb-4">Latest gadgets now available</p>
+                    <a href="#" class="bg-white text-purple-700 px-4 py-2 rounded-lg font-semibold hover:bg-gray-100 transition">Explore</a>
+                </div>
+                <img src="https://placehold.co/400x200?text=Electronics" alt="Electronics" class="absolute right-0 bottom-0 w-1/3 h-auto object-cover opacity-50 md:opacity-80">
+            </div>
+            
+            <!-- Banner 3 -->
+            <div class="bg-gradient-to-r from-amber-500 to-amber-700 rounded-lg shadow-md overflow-hidden relative">
+                <div class="p-6 text-white">
+                    <h3 class="text-xl font-bold mb-2">Flash Deals</h3>
+                    <p class="mb-4">24-hour limited time offers</p>
+                    <a href="#" class="bg-white text-amber-700 px-4 py-2 rounded-lg font-semibold hover:bg-gray-100 transition">View Deals</a>
+                </div>
+                <img src="https://placehold.co/400x200?text=Flash+Deals" alt="Flash Deals" class="absolute right-0 bottom-0 w-1/3 h-auto object-cover opacity-50 md:opacity-80">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Add this after the Featured Products section and before the Special Offers section -->
+
+<!-- Store Owners Spotlight -->
+<section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-8 text-center">Featured Vendors</h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <!-- Vendor 1 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="h-40 bg-primary flex items-center justify-center">
+                    <img src="https://placehold.co/200x200?text=TechHub" alt="TechHub" class="h-24 w-24 rounded-full border-4 border-white">
+                </div>
+                <div class="p-4 text-center">
+                    <h3 class="font-semibold text-lg mb-1">TechHub</h3>
+                    <p class="text-gray-600 text-sm mb-3">Premium Electronics & Gadgets</p>
+                    <div class="flex justify-center space-x-1 mb-3">
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-yellow-400"><i class="fas fa-star-half-alt"></i></span>
+                        <span class="text-gray-600 text-sm ml-1">(4.5)</span>
+                    </div>
+                    <a href="vendors.html?id=techhub" class="text-primary hover:underline">Visit Store</a>
+                </div>
+            </div>
+            
+            <!-- Vendor 2 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="h-40 bg-secondary flex items-center justify-center">
+                    <img src="https://placehold.co/200x200?text=Fashionista" alt="Fashionista" class="h-24 w-24 rounded-full border-4 border-white">
+                </div>
+                <div class="p-4 text-center">
+                    <h3 class="font-semibold text-lg mb-1">Fashionista</h3>
+                    <p class="text-gray-600 text-sm mb-3">Trendy Clothing & Accessories</p>
+                    <div class="flex justify-center space-x-1 mb-3">
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-gray-600 text-sm ml-1">(5.0)</span>
+                    </div>
+                    <a href="vendors.html?id=fashionista" class="text-primary hover:underline">Visit Store</a>
+                </div>
+            </div>
+            
+            <!-- Vendor 3 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="h-40 bg-green-700 flex items-center justify-center">
+                    <img src="https://placehold.co/200x200?text=HomeDecor" alt="HomeDecor" class="h-24 w-24 rounded-full border-4 border-white">
+                </div>
+                <div class="p-4 text-center">
+                    <h3 class="font-semibold text-lg mb-1">HomeDecor</h3>
+                    <p class="text-gray-600 text-sm mb-3">Stylish Home & Living Products</p>
+                    <div class="flex justify-center space-x-1 mb-3">
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-gray-400"><i class="far fa-star"></i></span>
+                        <span class="text-gray-600 text-sm ml-1">(4.0)</span>
+                    </div>
+                    <a href="vendors.html?id=homedecor" class="text-primary hover:underline">Visit Store</a>
+                </div>
+            </div>
+            
+            <!-- Vendor 4 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="h-40 bg-blue-700 flex items-center justify-center">
+                    <img src="https://placehold.co/200x200?text=KidZone" alt="KidZone" class="h-24 w-24 rounded-full border-4 border-white">
+                </div>
+                <div class="p-4 text-center">
+                    <h3 class="font-semibold text-lg mb-1">KidZone</h3>
+                    <p class="text-gray-600 text-sm mb-3">Toys & Children's Products</p>
+                    <div class="flex justify-center space-x-1 mb-3">
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-yellow-400"><i class="fas fa-star-half-alt"></i></span>
+                        <span class="text-gray-400"><i class="far fa-star"></i></span>
+                        <span class="text-gray-600 text-sm ml-1">(3.5)</span>
+                    </div>
+                    <a href="vendors.html?id=kidzone" class="text-primary hover:underline">Visit Store</a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-8">
+            <a href="vendors.html" class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition">View All Vendors</a>
+        </div>
+    </div>
+</section>
+
+    <!-- Add this after the Special Offers section and before the Newsletter section -->
+
+    <!-- Full-width Banner -->
+    <section class="py-8 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="relative rounded-lg overflow-hidden">
+                <img src="https://placehold.co/1200x300?text=Special+Collection" alt="Special Collection" class="w-full h-auto object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center">
+                    <div class="px-8 md:px-16 max-w-lg">
+                        <h2 class="text-white text-3xl md:text-4xl font-bold mb-4">Exclusive Collection</h2>
+                        <p class="text-white text-lg mb-6">Discover our handpicked selection of premium products from top brands around the world.</p>
+                        <a href="collections.html" class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition">Explore Collection</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-8 text-center">Featured Products</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Product Card 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://placehold.co/300x300?text=Product+1" alt="Product 1" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-1 truncate">Premium Wireless Headphones with Noise Cancellation</h3>
+                        <p class="text-primary font-bold text-xl mb-2">$129.99</p>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-2">Experience crystal clear sound with these premium wireless headphones featuring active noise cancellation.</p>
+                        <div class="flex space-x-2">
+                            <button class="bg-secondary text-white px-4 py-2 rounded flex-1 hover:bg-gray-800 transition">Buy Now</button>
+                            <button class="bg-primary text-white px-3 py-2 rounded hover:bg-green-700 transition"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://placehold.co/300x300?text=Product+2" alt="Product 2" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-1 truncate">Slim Fit Men's Casual Shirt</h3>
+                        <p class="text-primary font-bold text-xl mb-2">$49.99</p>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-2">Classic slim fit casual shirt for men, perfect for any occasion. Made with premium cotton.</p>
+                        <div class="flex space-x-2">
+                            <button class="bg-secondary text-white px-4 py-2 rounded flex-1 hover:bg-gray-800 transition">Buy Now</button>
+                            <button class="bg-primary text-white px-3 py-2 rounded hover:bg-green-700 transition"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://placehold.co/300x300?text=Product+3" alt="Product 3" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-1 truncate">Smart Fitness Tracker Watch</h3>
+                        <p class="text-primary font-bold text-xl mb-2">$89.99</p>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-2">Track your fitness goals with this advanced smart watch featuring heart rate monitoring and sleep tracking.</p>
+                        <div class="flex space-x-2">
+                            <button class="bg-secondary text-white px-4 py-2 rounded flex-1 hover:bg-gray-800 transition">Buy Now</button>
+                            <button class="bg-primary text-white px-3 py-2 rounded hover:bg-green-700 transition"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 4 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://placehold.co/300x300?text=Product+4" alt="Product 4" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-1 truncate">Women's Designer Handbag</h3>
+                        <p class="text-primary font-bold text-xl mb-2">$159.99</p>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-2">Elegant designer handbag with multiple compartments and premium leather finish.</p>
+                        <div class="flex space-x-2">
+                            <button class="bg-secondary text-white px-4 py-2 rounded flex-1 hover:bg-gray-800 transition">Buy Now</button>
+                            <button class="bg-primary text-white px-3 py-2 rounded hover:bg-green-700 transition"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 5 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://placehold.co/300x300?text=Product+5" alt="Product 5" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-1 truncate">Ultra HD 4K Smart TV 55-inch</h3>
+                        <p class="text-primary font-bold text-xl mb-2">$699.99</p>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-2">Experience stunning visuals with this 55-inch 4K Smart TV featuring HDR and built-in streaming apps.</p>
+                        <div class="flex space-x-2">
+                            <button class="bg-secondary text-white px-4 py-2 rounded flex-1 hover:bg-gray-800 transition">Buy Now</button>
+                            <button class="bg-primary text-white px-3 py-2 rounded hover:bg-green-700 transition"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 6 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://placehold.co/300x300?text=Product+6" alt="Product 6" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-1 truncate">Professional DSLR Camera Kit</h3>
+                        <p class="text-primary font-bold text-xl mb-2">$1,299.99</p>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-2">Complete professional DSLR camera kit with multiple lenses, tripod, and carrying case.</p>
+                        <div class="flex space-x-2">
+                            <button class="bg-secondary text-white px-4 py-2 rounded flex-1 hover:bg-gray-800 transition">Buy Now</button>
+                            <button class="bg-primary text-white px-3 py-2 rounded hover:bg-green-700 transition"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 7 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://placehold.co/300x300?text=Product+7" alt="Product 7" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-1 truncate">Kids Educational Tablet</h3>
+                        <p class="text-primary font-bold text-xl mb-2">$149.99</p>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-2">Child-friendly tablet with educational apps, parental controls, and durable case.</p>
+                        <div class="flex space-x-2">
+                            <button class="bg-secondary text-white px-4 py-2 rounded flex-1 hover:bg-gray-800 transition">Buy Now</button>
+                            <button class="bg-primary text-white px-3 py-2 rounded hover:bg-green-700 transition"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 8 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://placehold.co/300x300?text=Product+8" alt="Product 8" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-1 truncate">Premium Coffee Maker Machine</h3>
+                        <p class="text-primary font-bold text-xl mb-2">$199.99</p>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-2">Programmable coffee maker with built-in grinder, multiple brewing options, and thermal carafe.</p>
+                        <div class="flex space-x-2">
+                            <button class="bg-secondary text-white px-4 py-2 rounded flex-1 hover:bg-gray-800 transition">Buy Now</button>
+                            <button class="bg-primary text-white px-3 py-2 rounded hover:bg-green-700 transition"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 9 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://placehold.co/300x300?text=Product+9" alt="Product 9" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-1 truncate">Wireless Gaming Mouse</h3>
+                        <p class="text-primary font-bold text-xl mb-2">$79.99</p>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-2">High-precision wireless gaming mouse with customizable RGB lighting and programmable buttons.</p>
+                        <div class="flex space-x-2">
+                            <button class="bg-secondary text-white px-4 py-2 rounded flex-1 hover:bg-gray-800 transition">Buy Now</button>
+                            <button class="bg-primary text-white px-3 py-2 rounded hover:bg-green-700 transition"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 10 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://placehold.co/300x300?text=Product+10" alt="Product 10" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-1 truncate">Portable Bluetooth Speaker</h3>
+                        <p class="text-primary font-bold text-xl mb-2">$69.99</p>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-2">Waterproof portable Bluetooth speaker with 20-hour battery life and deep bass sound.</p>
+                        <div class="flex space-x-2">
+                            <button class="bg-secondary text-white px-4 py-2 rounded flex-1 hover:bg-gray-800 transition">Buy Now</button>
+                            <button class="bg-primary text-white px-3 py-2 rounded hover:bg-green-700 transition"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 11 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://placehold.co/300x300?text=Product+11" alt="Product 11" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-1 truncate">Stainless Steel Water Bottle</h3>
+                        <p class="text-primary font-bold text-xl mb-2">$24.99</p>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-2">Double-walled insulated water bottle that keeps drinks cold for 24 hours or hot for 12 hours.</p>
+                        <div class="flex space-x-2">
+                            <button class="bg-secondary text-white px-4 py-2 rounded flex-1 hover:bg-gray-800 transition">Buy Now</button>
+                            <button class="bg-primary text-white px-3 py-2 rounded hover:bg-green-700 transition"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 12 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://placehold.co/300x300?text=Product+12" alt="Product 12" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-1 truncate">Wireless Earbuds with Charging Case</h3>
+                        <p class="text-primary font-bold text-xl mb-2">$89.99</p>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-2">True wireless earbuds with touch controls, noise isolation, and compact charging case.</p>
+                        <div class="flex space-x-2">
+                            <button class="bg-secondary text-white px-4 py-2 rounded flex-1 hover:bg-gray-800 transition">Buy Now</button>
+                            <button class="bg-primary text-white px-3 py-2 rounded hover:bg-green-700 transition"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 13 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://placehold.co/300x300?text=Product+13" alt="Product 13" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-1 truncate">Yoga Mat with Carrying Strap</h3>
+                        <p class="text-primary font-bold text-xl mb-2">$34.99</p>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-2">Non-slip yoga mat with alignment lines, eco-friendly material, and convenient carrying strap.</p>
+                        <div class="flex space-x-2">
+                            <button class="bg-secondary text-white px-4 py-2 rounded flex-1 hover:bg-gray-800 transition">Buy Now</button>
+                            <button class="bg-primary text-white px-3 py-2 rounded hover:bg-green-700 transition"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 14 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://placehold.co/300x300?text=Product+14" alt="Product 14" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-1 truncate">Digital Drawing Tablet</h3>
+                        <p class="text-primary font-bold text-xl mb-2">$199.99</p>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-2">Professional drawing tablet with pressure-sensitive pen, customizable shortcuts, and wide compatibility.</p>
+                        <div class="flex space-x-2">
+                            <button class="bg-secondary text-white px-4 py-2 rounded flex-1 hover:bg-gray-800 transition">Buy Now</button>
+                            <button class="bg-primary text-white px-3 py-2 rounded hover:bg-green-700 transition"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 15 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://placehold.co/300x300?text=Product+15" alt="Product 15" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-1 truncate">Smart Home Security Camera</h3>
+                        <p class="text-primary font-bold text-xl mb-2">$129.99</p>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-2">Wireless security camera with motion detection, night vision, and smartphone notifications.</p>
+                        <div class="flex space-x-2">
+                            <button class="bg-secondary text-white px-4 py-2 rounded flex-1 hover:bg-gray-800 transition">Buy Now</button>
+                            <button class="bg-primary text-white px-3 py-2 rounded hover:bg-green-700 transition"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 16 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://placehold.co/300x300?text=Product+16" alt="Product 16" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-1 truncate">Mechanical Gaming Keyboard</h3>
+                        <p class="text-primary font-bold text-xl mb-2">$119.99</p>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-2">RGB mechanical gaming keyboard with customizable key switches and programmable macros.</p>
+                        <div class="flex space-x-2">
+                            <button class="bg-secondary text-white px-4 py-2 rounded flex-1 hover:bg-gray-800 transition">Buy Now</button>
+                            <button class="bg-primary text-white px-3 py-2 rounded hover:bg-green-700 transition"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 17 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://placehold.co/300x300?text=Product+17" alt="Product 17" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-1 truncate">Leather Wallet for Men</h3>
+                        <p class="text-primary font-bold text-xl mb-2">$39.99</p>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-2">Genuine leather wallet with RFID blocking technology, multiple card slots, and slim design.</p>
+                        <div class="flex space-x-2">
+                            <button class="bg-secondary text-white px-4 py-2 rounded flex-1 hover:bg-gray-800 transition">Buy Now</button>
+                            <button class="bg-primary text-white px-3 py-2 rounded hover:bg-green-700 transition"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 18 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://placehold.co/300x300?text=Product+18" alt="Product 18" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-1 truncate">Wireless Charging Pad</h3>
+                        <p class="text-primary font-bold text-xl mb-2">$29.99</p>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-2">Fast wireless charging pad compatible with all Qi-enabled devices, sleek design with LED indicator.</p>
+                        <div class="flex space-x-2">
+                            <button class="bg-secondary text-white px-4 py-2 rounded flex-1 hover:bg-gray-800 transition">Buy Now</button>
+                            <button class="bg-primary text-white px-3 py-2 rounded hover:bg-green-700 transition"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 19 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://placehold.co/300x300?text=Product+19" alt="Product 19" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-1 truncate">Adjustable Laptop Stand</h3>
+                        <p class="text-primary font-bold text-xl mb-2">$49.99</p>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-2">Ergonomic laptop stand with adjustable height and angle, foldable design for easy storage.</p>
+                        <div class="flex space-x-2">
+                            <button class="bg-secondary text-white px-4 py-2 rounded flex-1 hover:bg-gray-800 transition">Buy Now</button>
+                            <button class="bg-primary text-white px-3 py-2 rounded hover:bg-green-700 transition"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 20 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://placehold.co/300x300?text=Product+20" alt="Product 20" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-1 truncate">Smart Indoor Plant Pot</h3>
+                        <p class="text-primary font-bold text-xl mb-2">$59.99</p>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-2">Self-watering plant pot with soil moisture sensors and smartphone app for monitoring plant health.</p>
+                        <div class="flex space-x-2">
+                            <button class="bg-secondary text-white px-4 py-2 rounded flex-1 hover:bg-gray-800 transition">Buy Now</button>
+                            <button class="bg-primary text-white px-3 py-2 rounded hover:bg-green-700 transition"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-8">
+                <a href="products.html" class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition">View All Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offers -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-8 text-center">Special Offers</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-gray-100 rounded-lg p-6 flex flex-col md:flex-row items-center">
+                    <img src="https://placehold.co/300x300?text=New+Arrivals" alt="New Arrivals" class="w-full md:w-1/3 h-48 object-cover rounded mb-4 md:mb-0 md:mr-6">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-2">New Arrivals</h3>
+                        <p class="text-gray-600 mb-4">Check out our latest products fresh in stock. Be the first to get your hands on our newest items.</p>
+                        <a href="categories.html?filter=new-arrivals" class="bg-primary text-white px-4 py-2 rounded font-semibold hover:bg-green-700 transition">Shop Now</a>
+                    </div>
+                </div>
+                <div class="bg-gray-100 rounded-lg p-6 flex flex-col md:flex-row items-center">
+                    <img src="https://placehold.co/300x300?text=Sale" alt="Sale" class="w-full md:w-1/3 h-48 object-cover rounded mb-4 md:mb-0 md:mr-6">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-2">Clearance Sale</h3>
+                        <p class="text-gray-600 mb-4">Up to 70% off on selected items. Limited time offer, grab your favorites before they're gone!</p>
+                        <a href="categories.html?filter=sale" class="bg-primary text-white px-4 py-2 rounded font-semibold hover:bg-green-700 transition">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-12 bg-secondary text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-4">Subscribe to Our Newsletter</h2>
+                <p class="mb-6">Stay updated with our latest products and exclusive offers.</p>
+                <form class="flex flex-col sm:flex-row gap-2">
+                    <input type="email" placeholder="Your email address" class="px-4 py-3 rounded-lg flex-1 text-gray-800 focus:outline-none">
+                    <button type="submit" class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock scripts%}

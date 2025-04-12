@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard - Geco Mart</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+       <!-- Bootstrap CSS -->
+       <script src="https://cdn.tailwindcss.com"></script>
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+       
+       <!-- Your custom CSS -->
+       {% comment %} <link rel="stylesheet" href="{% static 'css/style.css' %}"> {% endcomment %}
+       
+       {% comment %} {% block extra_css %}{% endblock %} {% endcomment %}
+   
+       <script>
+           tailwind.config = {
+               theme: {
+                   extend: {
+                       colors: {
+                           primary: '#166534', // medium dark green
+                           secondary: '#111827', // black
+                       }
+                   }
+               }
+           }
+   
+       </script>
+   
+       <style>
+           /* Slideshow styles */
+           .hero-slide {
+               display: none;
+           }
+           
+           .fade {
+               animation-name: fade;
+               animation-duration: 1.5s;
+           }
+           
+           @keyframes fade {
+               from {opacity: .4}
+               to {opacity: 1}
+           }
+           
+           .active-slide {
+               display: block;
+           }
+           
+           .active-dot {
+               background-color: white !important;
+           }
+       </style>
+</head>
+     <!-- Header -->
+     <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <h1 class="text-2xl font-bold text-primary">Geco Mart</h1>
+                </div>
+                <div class="w-full md:w-1/3 mb-4 md:mb-0">
+                    <div class="relative">
+                        <input type="text" placeholder="Search products..." class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                        <button class="absolute right-2 top-2 text-gray-500">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="{% url "signin" %}" class="text-gray-700 hover:text-primary">
+                        <i class="fas fa-user"></i>
+                        <span class="ml-1 hidden md:inline">Signin</span>
+                    </a>
+                    <a href="cart.html" class="text-gray-700 hover:text-primary relative">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="ml-1 hidden md:inline">Cart</span>
+                        <span class="absolute -top-2 -right-2 bg-primary text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-secondary text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap">
+                <button class="md:hidden w-full py-3 text-left px-4" id="menuToggle">
+                    <i class="fas fa-bars mr-2"></i> Menu
+                </button>
+                <div class="hidden md:flex md:flex-row w-full" id="mobileMenu">
+                    <a href="{% url 'index' %}" class="px-4 py-3 hover:bg-primary {% if request.path == '/' %}bg-primary{% endif %}">Home</a>
+                    <a href="{% url 'products' %}" class="px-4 py-3 hover:bg-primary {% if 'products' in request.path %}bg-primary{% endif %}">Products</a>
+                    <a href="{% url 'categories' %}" class="px-4 py-3 hover:bg-primary {% if 'categories' in request.path %}bg-primary{% endif %}">Categories</a>
+                    <a href="{% url 'partners' %}" class="px-4 py-3 hover:bg-primary {% if 'partners' in request.path %}bg-primary{% endif %}">Partners</a>
+                    <a href="{% url 'support' %}" class="px-4 py-3 hover:bg-primary {% if 'support' in request.path %}bg-primary{% endif %}">Support</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="bg-white py-3 shadow-sm">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center text-sm">
+                <a href="index.html" class="text-gray-600 hover:text-primary">Home</a>
+                <span class="mx-2 text-gray-400">/</span>
+                <span class="text-primary">My Account</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Section -->
+    <section class="py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row gap-8">
+                <!-- Sidebar -->
+                <div class="md:w-1/4">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <div class="p-6 bg-primary text-white">
+                            <div class="flex items-center">
+                                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-primary text-2xl font-bold mr-4">
+                                    JD
+                                </div>
+                                <div>
+                                    <h2 class="text-xl font-semibold">John Doe</h2>
+                                    <p class="text-sm opacity-80">Member since April 2025</p>
+                                </div>
+                            </div>
+                        </div>
+                        <nav class="p-4">
+                            <ul class="space-y-1">
+                                <li>
+                                    <a href="{% url "dashboard" %}" class="dashboard-tab flex items-center px-4 py-3 rounded-md bg-primary bg-opacity-10 text-primary font-medium">
+                                        <i class="fas fa-tachometer-alt w-5 mr-3"></i>
+                                        Dashboard
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{% url "my-orders" %}" class="dashboard-tab flex items-center px-4 py-3 rounded-md hover:bg-gray-100 text-gray-700">
+                                        <i class="fas fa-shopping-bag w-5 mr-3"></i>
+                                        My Orders
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{% url "whishlist" %}" class="dashboard-tab flex items-center px-4 py-3 rounded-md hover:bg-gray-100 text-gray-700">
+                                        <i class="fas fa-heart w-5 mr-3"></i>
+                                        Wishlist
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{% url "billing" %}" class="dashboard-tab flex items-center px-4 py-3 rounded-md hover:bg-gray-100 text-gray-700">
+                                        <i class="fas fa-map-marker-alt w-5 mr-3"></i>
+                                        Billing
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#payment" class="dashboard-tab flex items-center px-4 py-3 rounded-md hover:bg-gray-100 text-gray-700">
+                                        <i class="fas fa-credit-card w-5 mr-3"></i>
+                                        Payment Methods
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#account" class="dashboard-tab flex items-center px-4 py-3 rounded-md hover:bg-gray-100 text-gray-700">
+                                        <i class="fas fa-user-cog w-5 mr-3"></i>
+                                        Account Details
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#reviews" class="dashboard-tab flex items-center px-4 py-3 rounded-md hover:bg-gray-100 text-gray-700">
+                                        <i class="fas fa-star w-5 mr-3"></i>
+                                        My Reviews
+                                    </a>
+                                </li>
+                                <li class="border-t mt-4 pt-4">
+                                    <a href="login.html" class="flex items-center px-4 py-3 rounded-md hover:bg-gray-100 text-red-600">
+                                        <i class="fas fa-sign-out-alt w-5 mr-3"></i>
+                                        Logout
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <main>
+                    {% block content %}
+                    <!-- Content will go here -->
+                    {% endblock %}
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Geco Mart</h3>
+                    <p class="text-gray-400 mb-4">Your one-stop shop for all your shopping needs.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="{% url "index" %}" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="{% url "products" %}" class="text-gray-400 hover:text-white">Products</a></li>
+                        <li><a href="{% url "categories" %}" class="text-gray-400 hover:text-white">Categories</a></li>
+                        {% comment %} <li><a href="vendors.html" class="text-gray-400 hover:text-white">Vendors</a></li> {% endcomment %}
+                        <li><a href="{% url "support" %}" class="text-gray-400 hover:text-white">Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Customer Service</h4>
+                    <ul class="space-y-2">
+                        <li><a href="{% url "contactus" %}" class="text-gray-400 hover:text-white">Contact Us</a></li>
+                        <li><a href="{% url "faqs" %}" class="text-gray-400 hover:text-white">FAQs</a></li>
+                        <li><a href="{% url "shipping_policy" %}" class="text-gray-400 hover:text-white">Shipping Policy</a></li>
+                        <li><a href="{% url "refunds_policy" %}" class="text-gray-400 hover:text-white">Returns & Refunds</a></li>
+                        <li><a href="{% url "privacy_policy" %}" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fas fa-map-marker-alt mr-2"></i> Lusaka Zambia, Mutendere</li>
+                        <li><i class="fas fa-phone mr-2"></i> +260 97851 6926</li>
+                        <li><i class="fas fa-envelope mr-2"></i> info@gecomart.store</li>
+                        <li><i class="fas fa-clock mr-2"></i> Mon-Fri: 9AM - 6PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>v0.3 &copy; 2025 Geco Mart. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript -->
+   <script>
+        // Mobile menu toggle
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+    
+        // Add to cart functionality
+        const addToCartButtons = document.querySelectorAll('.bg-primary');
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const cartCount = document.querySelector('.fa-shopping-cart + span + span');
+                const currentCount = parseInt(cartCount.textContent);
+                cartCount.textContent = currentCount + 1;
+                
+                // Show notification
+                const product = this.closest('.bg-white').querySelector('h3').textContent;
+                showNotification(`${product} added to cart!`);
+            });
+        });
+    
+        // Buy now functionality
+        const buyNowButtons = document.querySelectorAll('.bg-secondary');
+        buyNowButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                window.location.href = 'checkout.html';
+            });
+        });
+    
+        // Notification function
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'fixed bottom-4 right-4 bg-green-500 text-white px-4 py-2 rounded shadow-lg transition-opacity duration-300';
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+    
+         // Slideshow functionality
+    let slideIndex = 0;
+    const slides = document.getElementsByClassName("hero-slide");
+    const dots = document.getElementsByClassName("dot");
+    const prevButton = document.querySelector(".prev");
+    const nextButton = document.querySelector(".next");
+    
+    // Initialize the slideshow
+    function showSlides() {
+        // Hide all slides
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].classList.remove("active-slide");
+            dots[i].classList.remove("active-dot");
+        }
+        
+        // Increment slide index
+        slideIndex++;
+        
+        // Reset to first slide if at the end
+        if (slideIndex > slides.length) {
+            slideIndex = 1;
+        }
+        
+        // Show the current slide
+        slides[slideIndex - 1].classList.add("active-slide");
+        dots[slideIndex - 1].classList.add("active-dot");
+    }
+    
+    // Initialize slideshow
+    showSlides();
+    
+    // Set up automatic slideshow
+    let slideshowInterval = setInterval(showSlides, 5000); // Change slide every 5 seconds
+    
+    // Manual navigation with prev/next buttons
+    prevButton.addEventListener("click", function() {
+        clearInterval(slideshowInterval); // Stop automatic slideshow
+        
+        // Hide all slides
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].classList.remove("active-slide");
+            dots[i].classList.remove("active-dot");
+        }
+        
+        // Decrement slide index
+        slideIndex--;
+        
+        // Go to last slide if at the beginning
+        if (slideIndex < 1) {
+            slideIndex = slides.length;
+        }
+        
+        // Show the current slide
+        slides[slideIndex - 1].classList.add("active-slide");
+        dots[slideIndex - 1].classList.add("active-dot");
+        
+        // Restart automatic slideshow
+        slideshowInterval = setInterval(showSlides, 5000);
+    });
+    
+    nextButton.addEventListener("click", function() {
+        clearInterval(slideshowInterval); // Stop automatic slideshow
+        showSlides(); // Show next slide
+        // Restart automatic slideshow
+        slideshowInterval = setInterval(showSlides, 5000);
+    });
+    
+    // Manual navigation with dots
+    for (let i = 0; i < dots.length; i++) {
+        dots[i].addEventListener("click", function() {
+            clearInterval(slideshowInterval); // Stop automatic slideshow
+            
+            // Hide all slides
+            for (let j = 0; j < slides.length; j++) {
+                slides[j].classList.remove("active-slide");
+                dots[j].classList.remove("active-dot");
+            }
+            
+            // Set slide index to clicked dot
+            slideIndex = i + 1;
+            
+            // Show the current slide
+            slides[slideIndex - 1].classList.add("active-slide");
+            dots[slideIndex - 1].classList.add("active-dot");
+            
+            // Restart automatic slideshow
+            slideshowInterval = setInterval(showSlides, 5000);
+        });
+    }
+    
+    // Show first slide initially
+    slides[0].classList.add("active-slide");
+    dots[0].classList.add("active-dot");
+    </script>
+</body>
+</html>

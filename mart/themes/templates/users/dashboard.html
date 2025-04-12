@@ -1,0 +1,704 @@
+{% extends 'users/user-base.html' %}
+{% load static %}
+
+{% block title %}Geco Mart - Your Products{% endblock %}
+
+{% block content %}
+<div class="md:w-3/4">
+    <!-- Dashboard Overview -->
+    <div id="dashboard-content" class="dashboard-content active">
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-2xl font-bold mb-6">Dashboard</h2>
+            <p class="mb-4">Hello <span class="font-semibold">John Doe</span> (not John? <a href="login.html" class="text-primary hover:underline">Log out</a>)</p>
+            <p class="text-gray-600">From your account dashboard you can view your recent orders, manage your shipping and billing addresses, and edit your password and account details.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+            <!-- Orders Summary -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-semibold">Orders</h3>
+                    <span class="text-2xl font-bold text-primary">12</span>
+                </div>
+                <div class="flex justify-between text-sm text-gray-600 mb-2">
+                    <span>Completed</span>
+                    <span>8</span>
+                </div>
+                <div class="flex justify-between text-sm text-gray-600 mb-2">
+                    <span>Processing</span>
+                    <span>3</span>
+                </div>
+                <div class="flex justify-between text-sm text-gray-600">
+                    <span>Cancelled</span>
+                    <span>1</span>
+                </div>
+            </div>
+            
+            <!-- Wishlist Summary -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-semibold">Wishlist</h3>
+                    <span class="text-2xl font-bold text-primary">7</span>
+                </div>
+                <p class="text-sm text-gray-600 mb-4">You have 7 products in your wishlist</p>
+                <a href="#wishlist" class="dashboard-tab text-primary hover:underline text-sm flex items-center">
+                    View Wishlist <i class="fas fa-arrow-right ml-1"></i>
+                </a>
+            </div>
+            
+            <!-- Reviews Summary -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-semibold">Reviews</h3>
+                    <span class="text-2xl font-bold text-primary">5</span>
+                </div>
+                <div class="flex items-center mb-2">
+                    <div class="flex text-yellow-400 mr-2">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <span class="text-sm text-gray-600">4.5 Average Rating</span>
+                </div>
+                <a href="#reviews" class="dashboard-tab text-primary hover:underline text-sm flex items-center">
+                    View Reviews <i class="fas fa-arrow-right ml-1"></i>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Recent Orders -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-semibold">Recent Orders</h3>
+                <a href="#orders" class="dashboard-tab text-primary hover:underline text-sm">View All</a>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead>
+                        <tr class="bg-gray-50">
+                            <th class="px-4 py-2 text-left text-sm font-medium text-gray-500">Order</th>
+                            <th class="px-4 py-2 text-left text-sm font-medium text-gray-500">Date</th>
+                            <th class="px-4 py-2 text-left text-sm font-medium text-gray-500">Status</th>
+                            <th class="px-4 py-2 text-left text-sm font-medium text-gray-500">Total</th>
+                            <th class="px-4 py-2 text-left text-sm font-medium text-gray-500">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr>
+                            <td class="px-4 py-3 text-sm">#GM8547</td>
+                            <td class="px-4 py-3 text-sm">April 5, 2025</td>
+                            <td class="px-4 py-3 text-sm">
+                                <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">Delivered</span>
+                            </td>
+                            <td class="px-4 py-3 text-sm">$128.50</td>
+                            <td class="px-4 py-3 text-sm">
+                                <a href="#" class="text-primary hover:underline">View</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 text-sm">#GM8423</td>
+                            <td class="px-4 py-3 text-sm">March 28, 2025</td>
+                            <td class="px-4 py-3 text-sm">
+                                <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs">Shipped</span>
+                            </td>
+                            <td class="px-4 py-3 text-sm">$74.99</td>
+                            <td class="px-4 py-3 text-sm">
+                                <a href="#" class="text-primary hover:underline">View</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 text-sm">#GM8356</td>
+                            <td class="px-4 py-3 text-sm">March 15, 2025</td>
+                            <td class="px-4 py-3 text-sm">
+                                <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">Delivered</span>
+                            </td>
+                            <td class="px-4 py-3 text-sm">$249.99</td>
+                            <td class="px-4 py-3 text-sm">
+                                <a href="#" class="text-primary hover:underline">View</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Recently Viewed -->
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-semibold">Recently Viewed</h3>
+                <a href="products.html" class="text-primary hover:underline text-sm">Browse More</a>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                <!-- Product 1 -->
+                <div class="border rounded-lg overflow-hidden hover:shadow-md transition">
+                    <a href="product-details.html">
+                        <img src="https://placehold.co/300x300?text=Product" alt="Product" class="w-full h-40 object-cover">
+                        <div class="p-4">
+                            <h4 class="font-medium mb-1 truncate">Wireless Bluetooth Headphones</h4>
+                            <div class="flex text-yellow-400 text-xs mb-1">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="text-gray-500 ml-1">(42)</span>
+                            </div>
+                            <p class="text-primary font-semibold">$89.99</p>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="border rounded-lg overflow-hidden hover:shadow-md transition">
+                    <a href="product-details.html">
+                        <img src="https://placehold.co/300x300?text=Product" alt="Product" class="w-full h-40 object-cover">
+                        <div class="p-4">
+                            <h4 class="font-medium mb-1 truncate">Smart Watch Series 5</h4>
+                            <div class="flex text-yellow-400 text-xs mb-1">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span class="text-gray-500 ml-1">(28)</span>
+                            </div>
+                            <p class="text-primary font-semibold">$199.99</p>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="border rounded-lg overflow-hidden hover:shadow-md transition">
+                    <a href="product-details.html">
+                        <img src="https://placehold.co/300x300?text=Product" alt="Product" class="w-full h-40 object-cover">
+                        <div class="p-4">
+                            <h4 class="font-medium mb-1 truncate">Portable Bluetooth Speaker</h4>
+                            <div class="flex text-yellow-400 text-xs mb-1">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="text-gray-500 ml-1">(56)</span>
+                            </div>
+                            <p class="text-primary font-semibold">$49.99</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Orders Content -->
+    <div id="orders-content" class="dashboard-content hidden">
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-2xl font-bold mb-6">My Orders</h2>
+            
+            <!-- Order Filters -->
+            <div class="flex flex-wrap gap-4 mb-6">
+                <button class="px-4 py-2 bg-primary text-white rounded-md">All Orders</button>
+                <button class="px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-md">Processing</button>
+                <button class="px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-md">Shipped</button>
+                <button class="px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-md">Delivered</button>
+                <button class="px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-md">Cancelled</button>
+            </div>
+            
+            <!-- Search Orders -->
+            <div class="mb-6">
+                <div class="relative">
+                    <input type="text" placeholder="Search orders..." class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                    <button class="absolute right-2 top-2 text-gray-500">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Orders Table -->
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead>
+                        <tr class="bg-gray-50">
+                            <th class="px-4 py-2 text-left text-sm font-medium text-gray-500">Order</th>
+                            <th class="px-4 py-2 text-left text-sm font-medium text-gray-500">Date</th>
+                            <th class="px-4 py-2 text-left text-sm font-medium text-gray-500">Status</th>
+                            <th class="px-4 py-2 text-left text-sm font-medium text-gray-500">Total</th>
+                            <th class="px-4 py-2 text-left text-sm font-medium text-gray-500">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr>
+                            <td class="px-4 py-3 text-sm">#GM8547</td>
+                            <td class="px-4 py-3 text-sm">April 5, 2025</td>
+                            <td class="px-4 py-3 text-sm">
+                                <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">Delivered</span>
+                            </td>
+                            <td class="px-4 py-3 text-sm">$128.50</td>
+                            <td class="px-4 py-3 text-sm">
+                                <a href="#" class="text-primary hover:underline mr-3">View</a>
+                                <a href="#" class="text-gray-600 hover:underline">Track</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 text-sm">#GM8423</td>
+                            <td class="px-4 py-3 text-sm">March 28, 2025</td>
+                            <td class="px-4 py-3 text-sm">
+                                <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs">Shipped</span>
+                            </td>
+                            <td class="px-4 py-3 text-sm">$74.99</td>
+                            <td class="px-4 py-3 text-sm">
+                                <a href="#" class="text-primary hover:underline mr-3">View</a>
+                                <a href="#" class="text-gray-600 hover:underline">Track</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 text-sm">#GM8356</td>
+                            <td class="px-4 py-3 text-sm">March 15, 2025</td>
+                            <td class="px-4 py-3 text-sm">
+                                <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">Delivered</span>
+                            </td>
+                            <td class="px-4 py-3 text-sm">$249.99</td>
+                            <td class="px-4 py-3 text-sm">
+                                <a href="#" class="text-primary hover:underline mr-3">View</a>
+                                <a href="#" class="text-gray-600 hover:underline">Track</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 text-sm">#GM8299</td>
+                            <td class="px-4 py-3 text-sm">March 2, 2025</td>
+                            <td class="px-4 py-3 text-sm">
+                                <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">Delivered</span>
+                            </td>
+                            <td class="px-4 py-3 text-sm">$35.50</td>
+                            <td class="px-4 py-3 text-sm">
+                                <a href="#" class="text-primary hover:underline mr-3">View</a>
+                                <a href="#" class="text-gray-600 hover:underline">Track</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 text-sm">#GM8187</td>
+                            <td class="px-4 py-3 text-sm">February 18, 2025</td>
+                            <td class="px-4 py-3 text-sm">
+                                <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs">Processing</span>
+                            </td>
+                            <td class="px-4 py-3 text-sm">$149.99</td>
+                            <td class="px-4 py-3 text-sm">
+                                <a href="#" class="text-primary hover:underline mr-3">View</a>
+                                <a href="#" class="text-gray-600 hover:underline">Track</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="flex justify-between items-center mt-6">
+                <p class="text-sm text-gray-600">Showing 1-5 of 12 orders</p>
+                <div class="flex space-x-1">
+                    <button class="px-3 py-1 border rounded text-gray-600 hover:bg-gray-50">Previous</button>
+                    <button class="px-3 py-1 border rounded bg-primary text-white">1</button>
+                    <button class="px-3 py-1 border rounded text-gray-600 hover:bg-gray-50">2</button>
+                    <button class="px-3 py-1 border rounded text-gray-600 hover:bg-gray-50">3</button>
+                    <button class="px-3 py-1 border rounded text-gray-600 hover:bg-gray-50">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Wishlist Content -->
+    <div id="wishlist-content" class="dashboard-content hidden">
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-2xl font-bold mb-6">My Wishlist</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Wishlist Item 1 -->
+                <div class="flex border rounded-lg overflow-hidden">
+                    <div class="w-1/3">
+                        <img src="https://placehold.co/300x300?text=Product" alt="Product" class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-2/3 p-4 flex flex-col">
+                        <h4 class="font-medium mb-1">Wireless Bluetooth Headphones</h4>
+                        <div class="flex text-yellow-400 text-xs mb-1">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="text-gray-500 ml-1">(42)</span>
+                        </div>
+                        <p class="text-primary font-semibold mb-2">$89.99</p>
+                        <p class="text-xs text-green-600 mb-2">In Stock</p>
+                        <div class="mt-auto flex space-x-2">
+                            <button class="px-3 py-1 bg-primary text-white text-sm rounded hover:bg-green-700">Add to Cart</button>
+                            <button class="px-3 py-1 bg-gray-200 text-gray-700 text-sm rounded hover:bg-gray-300">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Wishlist Item 2 -->
+                <div class="flex border rounded-lg overflow-hidden">
+                    <div class="w-1/3">
+                        <img src="https://placehold.co/300x300?text=Product" alt="Product" class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-2/3 p-4 flex flex-col">
+                        <h4 class="font-medium mb-1">Smart Watch Series 5</h4>
+                        <div class="flex text-yellow-400 text-xs mb-1">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span class="text-gray-500 ml-1">(28)</span>
+                        </div>
+                        <p class="text-primary font-semibold mb-2">$199.99</p>
+                        <p class="text-xs text-green-600 mb-2">In Stock</p>
+                        <div class="mt-auto flex space-x-2">
+                            <button class="px-3 py-1 bg-primary text-white text-sm rounded hover:bg-green-700">Add to Cart</button>
+                            <button class="px-3 py-1 bg-gray-200 text-gray-700 text-sm rounded hover:bg-gray-300">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Wishlist Item 3 -->
+                <div class="flex border rounded-lg overflow-hidden">
+                    <div class="w-1/3">
+                        <img src="https://placehold.co/300x300?text=Product" alt="Product" class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-2/3 p-4 flex flex-col">
+                        <h4 class="font-medium mb-1">Portable Bluetooth Speaker</h4>
+                        <div class="flex text-yellow-400 text-xs mb-1">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="text-gray-500 ml-1">(56)</span>
+                        </div>
+                        <p class="text-primary font-semibold mb-2">$49.99</p>
+                        <p class="text-xs text-green-600 mb-2">In Stock</p>
+                        <div class="mt-auto flex space-x-2">
+                            <button class="px-3 py-1 bg-primary text-white text-sm rounded hover:bg-green-700">Add to Cart</button>
+                            <button class="px-3 py-1 bg-gray-200 text-gray-700 text-sm rounded hover:bg-gray-300">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Wishlist Item 4 -->
+                <div class="flex border rounded-lg overflow-hidden">
+                    <div class="w-1/3">
+                        <img src="https://placehold.co/300x300?text=Product" alt="Product" class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-2/3 p-4 flex flex-col">
+                        <h4 class="font-medium mb-1">Wireless Gaming Mouse</h4>
+                        <div class="flex text-yellow-400 text-xs mb-1">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span class="text-gray-500 ml-1">(34)</span>
+                        </div>
+                        <p class="text-primary font-semibold mb-2">$59.99</p>
+                        <p class="text-xs text-yellow-600 mb-2">Low Stock</p>
+                        <div class="mt-auto flex space-x-2">
+                            <button class="px-3 py-1 bg-primary text-white text-sm rounded hover:bg-green-700">Add to Cart</button>
+                            <button class="px-3 py-1 bg-gray-200 text-gray-700 text-sm rounded hover:bg-gray-300">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Addresses Content -->
+    <div id="addresses-content" class="dashboard-content hidden">
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold">My Addresses</h2>
+                <button class="px-4 py-2 bg-primary text-white rounded-md hover:bg-green-700">
+                    <i class="fas fa-plus mr-2"></i> Add New Address
+                </button>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Shipping Address -->
+                <div class="border rounded-lg p-6 relative">
+                    <div class="absolute top-4 right-4 flex space-x-2">
+                        <button class="text-gray-600 hover:text-primary">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="text-gray-600 hover:text-red-600">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Shipping Address</h3>
+                    <span class="inline-block px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs mb-4">Default</span>
+                    <p class="text-gray-600 mb-1">John Doe</p>
+                    <p class="text-gray-600 mb-1">123 Main Street, Apt 4B</p>
+                    <p class="text-gray-600 mb-1">New York, NY 10001</p>
+                    <p class="text-gray-600 mb-1">United States</p>
+                    <p class="text-gray-600 mb-1">Phone: (123) 456-7890</p>
+                </div>
+                
+                <!-- Billing Address -->
+                <div class="border rounded-lg p-6 relative">
+                    <div class="absolute top-4 right-4 flex space-x-2">
+                        <button class="text-gray-600 hover:text-primary">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="text-gray-600 hover:text-red-600">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Billing Address</h3>
+                    <span class="inline-block px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs mb-4">Default</span>
+                    <p class="text-gray-600 mb-1">John Doe</p>
+                    <p class="text-gray-600 mb-1">456 Business Ave, Suite 200</p>
+                    <p class="text-gray-600 mb-1">New York, NY 10002</p>
+                    <p class="text-gray-600 mb-1">United States</p>
+                    <p class="text-gray-600 mb-1">Phone: (123) 456-7890</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Payment Methods Content -->
+    <div id="payment-content" class="dashboard-content hidden">
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold">Payment Methods</h2>
+                <button class="px-4 py-2 bg-primary text-white rounded-md hover:bg-green-700">
+                    <i class="fas fa-plus mr-2"></i> Add Payment Method
+                </button>
+            </div>
+            
+            <div class="space-y-6">
+                <!-- Credit Card 1 -->
+                <div class="border rounded-lg p-6 relative">
+                    <div class="absolute top-4 right-4 flex space-x-2">
+                        <button class="text-gray-600 hover:text-primary">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="text-gray-600 hover:text-red-600">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                    <div class="flex items-center mb-4">
+                        <i class="fab fa-cc-visa text-blue-600 text-3xl mr-3"></i>
+                        <div>
+                            <h3 class="text-lg font-semibold">Visa ending in 4242</h3>
+                            <p class="text-sm text-gray-600">Expires 05/2028</p>
+                        </div>
+                        <span class="ml-auto inline-block px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs">Default</span>
+                    </div>
+                    <p class="text-gray-600">Billing Address: 456 Business Ave, Suite 200, New York, NY 10002</p>
+                </div>
+                
+                <!-- Credit Card 2 -->
+                <div class="border rounded-lg p-6 relative">
+                    <div class="absolute top-4 right-4 flex space-x-2">
+                        <button class="text-gray-600 hover:text-primary">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="text-gray-600 hover:text-red-600">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                    <div class="flex items-center mb-4">
+                        <i class="fab fa-cc-mastercard text-red-600 text-3xl mr-3"></i>
+                        <div>
+                            <h3 class="text-lg font-semibold">Mastercard ending in 8888</h3>
+                            <p class="text-sm text-gray-600">Expires 11/2026</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">Billing Address: 123 Main Street, Apt 4B, New York, NY 10001</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Account Details Content -->
+    <div id="account-content" class="dashboard-content hidden">
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-2xl font-bold mb-6">Account Details</h2>
+            
+            <form>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">First Name *</label>
+                        <input type="text" value="John" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Last Name *</label>
+                        <input type="text" value="Doe" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
+                        <input type="email" value="john.doe@example.com" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                        <input type="tel" value="(123) 456-7890" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                </div>
+                
+                <h3 class="text-xl font-semibold mb-4">Password Change</h3>
+                <div class="space-y-4 mb-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Current Password</label>
+                        <input type="password" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">New Password</label>
+                        <input type="password" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Confirm New Password</label>
+                        <input type="password" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                </div>
+                
+                <h3 class="text-xl font-semibold mb-4">Communication Preferences</h3>
+                <div class="space-y-3 mb-6">
+                    <div class="flex items-center">
+                        <input type="checkbox" id="newsletter" class="rounded text-primary focus:ring-primary mr-2" checked>
+                        <label for="newsletter" class="text-gray-700">Subscribe to newsletter</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="promotions" class="rounded text-primary focus:ring-primary mr-2" checked>
+                        <label for="promotions" class="text-gray-700">Receive promotional emails</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="order_updates" class="rounded text-primary focus:ring-primary mr-2" checked>
+                        <label for="order_updates" class="text-gray-700">Receive order updates via SMS</label>
+                    </div>
+                </div>
+                
+                <div class="flex justify-end">
+                    <button type="submit" class="px-6 py-2 bg-primary text-white rounded-md hover:bg-green-700">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Reviews Content -->
+    <div id="reviews-content" class="dashboard-content hidden">
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-2xl font-bold mb-6">My Reviews</h2>
+            
+            <div class="space-y-6">
+                <!-- Review 1 -->
+                <div class="border rounded-lg p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="font-semibold mb-1">Wireless Bluetooth Headphones</h3>
+                            <div class="flex text-yellow-400 mb-1">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-sm text-gray-500">Reviewed on April 2, 2025</p>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="text-gray-600 hover:text-primary">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="text-gray-600 hover:text-red-600">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">These headphones are amazing! The sound quality is excellent, and the battery life is impressive. I can wear them all day without any discomfort. Highly recommended for anyone looking for quality wireless headphones.</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <span class="mr-4"><i class="fas fa-thumbs-up mr-1"></i> 12 people found this helpful</span>
+                        <span><i class="fas fa-comment mr-1"></i> Seller responded</span>
+                    </div>
+                </div>
+                
+                <!-- Review 2 -->
+                <div class="border rounded-lg p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="font-semibold mb-1">Smart Watch Series 5</h3>
+                            <div class="flex text-yellow-400 mb-1">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <p class="text-sm text-gray-500">Reviewed on March 15, 2025</p>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="text-gray-600 hover:text-primary">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="text-gray-600 hover:text-red-600">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">Great smartwatch with lots of features. The fitness tracking is accurate, and the battery lasts about 2 days with normal use. The only downside is that some apps are a bit slow to load. Overall, I'm very satisfied with this purchase.</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <span class="mr-4"><i class="fas fa-thumbs-up mr-1"></i> 8 people found this helpful</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+    // Mobile menu toggle
+    document.getElementById('menuToggle').addEventListener('click', function() {
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenu.classList.toggle('hidden');
+    });
+    
+    // Dashboard tab switching
+    const dashboardTabs = document.querySelectorAll('.dashboard-tab');
+    const dashboardContents = document.querySelectorAll('.dashboard-content');
+    
+    dashboardTabs.forEach(tab => {
+        tab.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Remove active class from all tabs
+            dashboardTabs.forEach(t => {
+                t.classList.remove('bg-primary', 'bg-opacity-10', 'text-primary', 'font-medium');
+                t.classList.add('hover:bg-gray-100', 'text-gray-700');
+            });
+            
+            // Add active class to clicked tab
+            this.classList.add('bg-primary', 'bg-opacity-10', 'text-primary', 'font-medium');
+            this.classList.remove('hover:bg-gray-100', 'text-gray-700');
+            
+            // Hide all content sections
+            dashboardContents.forEach(content => {
+                content.classList.add('hidden');
+                content.classList.remove('active');
+            });
+            
+            // Show corresponding content
+            const target = this.getAttribute('href').substring(1);
+            document.getElementById(target + '-content').classList.remove('hidden');
+            document.getElementById(target + '-content').classList.add('active');
+        });
+    });
+</script>
+
+{% endblock %}

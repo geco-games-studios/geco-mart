@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor Dashboard - Geco Mart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#166534', // medium dark green
+                        secondary: '#111827', // black
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <a href="index.html"><h1 class="text-2xl font-bold text-primary">Geco Mart</h1></a>
+                    <span class="ml-2 px-2 py-1 bg-primary text-white text-xs rounded-md">Vendor</span>
+                </div>
+                <div class="w-full md:w-1/3 mb-4 md:mb-0">
+                    <div class="relative">
+                        <input type="text" placeholder="Search products..." class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                        <button class="absolute right-2 top-2 text-gray-500">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="vendor-dashboard.html" class="text-primary font-medium">
+                        <i class="fas fa-store"></i>
+                        <span class="ml-1 hidden md:inline">Tech Gadgets Store</span>
+                    </a>
+                    <div class="relative">
+                        <button class="text-gray-700 hover:text-primary">
+                            <i class="fas fa-bell"></i>
+                            <span class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">5</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-secondary text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap">
+                <button class="md:hidden w-full py-3 text-left px-4" id="menuToggle">
+                    <i class="fas fa-bars mr-2"></i> Menu
+                </button>
+                <div class="hidden md:flex md:flex-row w-full" id="mobileMenu">
+                    <a href="index.html" class="px-4 py-3 hover:bg-primary">Marketplace</a>
+                    <a href="vendor-dashboard.html" class="px-4 py-3 bg-primary">Vendor Dashboard</a>
+                    <a href="support.html" class="px-4 py-3 hover:bg-primary">Support</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="bg-white py-3 shadow-sm">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center text-sm">
+                <a href="index.html" class="text-gray-600 hover:text-primary">Home</a>
+                <span class="mx-2 text-gray-400">/</span>
+                <span class="text-primary">Vendor Dashboard</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Section -->
+    <section class="py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row gap-8">
+                <!-- Sidebar -->
+                <div class="md:w-1/4">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <div class="p-6 bg-primary text-white">
+                            <div class="flex items-center">
+                                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-primary text-2xl font-bold mr-4">
+                                    <i class="fas fa-store"></i>
+                                </div>
+                                <div>
+                                    <h2 class="text-xl font-semibold">Tech Gadgets Store</h2>
+                                    <p class="text-sm opacity-80">Vendor since January 2023</p>
+                                </div>
+                            </div>
+                        </div>
+                        <nav class="p-4">
+                            <ul class="space-y-1">
+                                <li>
+                                    <a href="#dashboard" class="dashboard-tab flex items-center px-4 py-3 rounded-md bg-primary bg-opacity-10 text-primary font-medium">
+                                        <i class="fas fa-tachometer-alt w-5 mr-3"></i>
+                                        Dashboard
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#products" class="dashboard-tab flex items-center px-4 py-3 rounded-md hover:bg-gray-100 text-gray-700">
+                                        <i class="fas fa-box w-5 mr-3"></i>
+                                        Products
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#orders" class="dashboard-tab flex items-center px-4 py-3 rounded-md hover:bg-gray-100 text-gray-700">
+                                        <i class="fas fa-shopping-bag w-5 mr-3"></i>
+                                        Orders
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#customers" class="dashboard-tab flex items-center px-4 py-3 rounded-md hover:bg-gray-100 text-gray-700">
+                                        <i class="fas fa-users w-5 mr-3"></i>
+                                        Customers
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#analytics" class="dashboard-tab flex items-center px-4 py-3 rounded-md hover:bg-gray-100 text-gray-700">
+                                        <i class="fas fa-chart-line w-5 mr-3"></i>
+                                        Analytics
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#reviews" class="dashboard-tab flex items-center px-4 py-3 rounded-md hover:bg-gray-100 text-gray-700">
+                                        <i class="fas fa-star w-5 mr-3"></i>
+                                        Reviews
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#settings" class="dashboard-tab flex items-center px-4 py-3 rounded-md hover:bg-gray-100 text-gray-700">
+                                        <i class="fas fa-cog w-5 mr-3"></i>
+                                        Settings
+                                    </a>
+                                </li>
+                                <li class="border-t mt-4 pt-4">
+                                    <a href="login.html" class="flex items-center px-4 py-3 rounded-md hover:bg-gray-100 text-red-600">
+                                        <i class="fas fa-sign-out-alt w-5 mr-3"></i>
+                                        Logout
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                
+                <!-- Main Content -->
+                <div class="md:w-3/4">
+                    <!-- Dashboard Overview -->
+                    <div id="dashboard-content" class="dashboard-content active">
+                        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                            <div class="flex justify-between items-center mb-6">
+                                <h2 class="text-2xl font-bold">Dashboard</h2>
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-gray-600">Period:</span>
+                                    <select class="border rounded px-3 py-1 focus:outline-none focus:ring-2 focus:ring-primary">
+                                        <option>Last 7 days</option>
+                                        <option>Last 30 days</option>
+                                        <option>Last 90 days</option>
+                                        <option>This year</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                                <!-- Sales Card -->
+                                <div class="bg-blue-50 rounded-lg p-6">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <p class="text-blue-600 text-sm font-medium">Total Sales</p>
+                                            <h3 class="text-2xl font-bold mt-1">$12,845.65</h3>
+                                            <p class="text-green-600 text-sm mt-2">
+                                                <i class="fas fa-arrow-up mr-1"></i> 12.5% from last period
+                                            </p>
+                                        </div>
+                                        <div class="bg-blue-100 p-3 rounded-lg">
+                                            <i class="fas fa-dollar-sign text-blue-600 text-xl"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Orders Card -->
+                                <div class="bg-green-50 rounded-lg p-6">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <p class="text-green-600 text-sm font-medium">Total Orders</p>
+                                            <h3 class="text-2xl font-bold mt-1">248</h3>
+                                            <p class="text-green-600 text-sm mt-2">
+                                                <i class="fas fa-arrow-up mr-1"></i> 8.2% from last period
+                                            </p>
+                                        </div>
+                                        <div class="bg-green-100 p-3 rounded-lg">
+                                            <i class="fas fa-shopping-cart text-green-600 text-xl"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Products Card -->
+                                <div class="bg-purple-50 rounded-lg p-6">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <p class="text-purple-600 text-sm font-medium">Total Products</p>
+                                            <h3 class="text-2xl font-bold mt-1">86</h3>
+                                            <p class="text-green-600 text-sm mt-2">
+                                                <i class="fas fa-arrow-up mr-1"></i> 4.1% from last period
+                                            </p>
+                                        </div>
+                                        <div class="bg-purple-100 p-3 rounded-lg">
+                                            <i class="fas fa-box text-purple-600 text-xl"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Customers Card -->
+                                <div class="bg-orange-50 rounded-lg p-6">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <p class="text-orange-600 text-sm font-medium">Total Customers</p>
+                                            <h3 class="text-2xl font-bold mt-1">1,254</h3>
+                                            <p class="text-green-600 text-sm mt-2">
+                                                <i class="fas fa-arrow-up mr-1"></i> 15.3% from last period
+                                            </p>
+                                        </div>
+                                        <div class="bg-orange-100 p-3 rounded-lg">
+                                            <i class="fas fa-users text-orange-600 text-xl"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Sales Chart -->
+                            <div class="mb-8">
+                                <h3 class="text-xl font-semibold mb-4">Sales Overview</h3>
+                                <div class="bg-gray-50 border rounded-lg p-4 h-64 flex items-center justify-center">
+                                    <div class="text-center">
+                                        <i class="fas fa-chart-line text-4xl text-gray-400 mb-3"></i>
+                                        <p class="text-gray-500">Sales chart visualization would appear here</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Recent Activity -->
+                            <div>
+                                <h3 class="text-xl font-semibold mb-4">Recent Activity</h3>
+                                <div class="space-y-4">
+                                    <div class="flex items-start">
+                                        <div class="bg-blue-100 p-2 rounded-full mr-4">
+                                            <i class="fas fa-shopping-bag text-blue-600"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-medium">New order #GM8547 received</p>
+                                            <p class="text-sm text-gray-600">Customer: John Doe - $128.50</p>
+                                            <p class="text-xs text-gray-500">10 minutes ago</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="bg-green-100 p-2 rounded-full mr-4">
+                                            <i class="fas fa-dollar-sign text-green-600"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-medium">Payment received for order #GM8423</p>
+                                            <p class="text-sm text-gray-600">$74.99 via Credit Card</p>
+                                            <p class="text-xs text-gray-500">1 hour ago</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="bg-yellow-100 p-2 rounded-full mr-4">
+                                            <i class="fas fa-star text-yellow-600"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-medium">New review received</p>
+                                            <p class="text-sm text-gray-600">5-star review for "Wireless Bluetooth Headphones"</p>
+                                            <p class="text-xs text-gray-500">3 hours ago</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="bg-red-100 p-2 rounded-full mr-4">
+                                            <i class="fas fa-exclamation-circle text-red-600"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-medium">Low stock alert</p>
+                                            <p class="text-sm text-gray-600">"Portable Bluetooth Speaker" is running low (3 units left)</p>
+                                            <p class="text-xs text-gray-500">5 hours ago</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Products Content -->
+                    <div id="products-content" class="dashboard-content hidden">
+                        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                            <div class="flex justify-between items-center mb-6">
+                                <h2 class="text-2xl font-bold">Products</h2>
+                                <button class="px-4 py-2 bg-primary text-white rounded-md hover:bg-green-700">
+                                    <i class="fas fa-plus mr-2"></i> Add New Product
+                                </button>
+                            </div>
+                            
+                            <!-- Product Filters -->
+                            <div class="flex flex-wrap gap-4 mb-6">
+                                <div class="flex-1">
+                                    <div class="relative">
+                                        <input type="text" placeholder="Search products..." class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                                        <button class="absolute right-2 top-2 text-gray-500">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <select class="border rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary">
+                                    <option>All Categories</option>
+                                    <option>Electronics</option>
+                                    <option>Audio</option>
+                                    <option>Wearables</option>
+                                    <option>Accessories</option>
+                                </select>
+                                <select class="border rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary">
+                                    <option>All Status</option>
+                                    <option>In Stock</option>
+                                    <option>Low Stock</option>
+                                    <option>Out of Stock</option>
+                                </select>
+                            </div>
+                            
+                            <!-- Products Table -->
+                            <div class="overflow-x-auto">
+                                <table class="w-full">
+                                    <thead>
+                                        <tr class="bg-gray-50">
+                                            <th class="px-4 py-2 text-left text-sm font-medium text-gray-500">Product</th>
+                                            <th class="px-4 py-2 text-left text-sm font-medium text-gray-500">SKU</th>
+                                            <th class="px-4 py-2 text-left text-sm font-medium text-gray-500">Price</th>
+                                            <th class="px-4 py-2 text-left text-sm font-medium text-gray-500">Stock</th>
+                                            <th class="px-4 py-2 text-left text-sm font-medium text-gray-500">Status</th>
+                                            <th class="px-4 py-2 text-left text-sm font-medium text-gray-500">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-gray-200">
+                                        <tr>
+                                            <td class="px-4 py-3">
+                                                <div class="flex items-center">
+                                                    <img src="https://placehold.co/60x60?text=Product" alt="Product" class="w-10 h-10 rounded mr-3">
+                                                    <div>
+                                                        <p class="font-medium">Wireless Bluetooth Headphones</p>
+                                                        <p class="text-xs text-gray-500">Electronics > Audio</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="px-4 py-3 text-sm">WBH-001</td>
+                                            <td class="px-4 py-3 text-sm">$89.99</td>
+                                            <td class="px-4 py-3 text-sm">42</td>
+                                            <td class="px-4 py-3 text-sm">
+                                                <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">In Stock</span>
+                                            </td>
+                                            <td class="px-4 py-3 text-sm">
+                                                <div class="flex space-x-2">
+                                                    <button class="text-blue-600 hover:text-blue-800">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                    <button class="text-red-600 hover:text-red-800">
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                    <button class="text-gray-600 hover:text-gray-800">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-4 py-3">
+                                                <div class="flex items-center">
+                                                    <img src="https://placehold.co/60x60?text=Product" alt="Product" class="w-10 h-10 rounded mr-3">
+                                                    <div>
+                                                        <p class="font-medium">Smart Watch Series 5</p>
+                                                        <p class="text-xs text-gray-500">Electronics > Wearables</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="px-4 py-3 text-sm">SWS-005</td>
+                                            <td class="px-4 py-3 text-sm">$199.99</td>
+                                            <td class="px-4 py-3 text-sm">28</td>
+                                            <td class="px-4 py-3 text-sm">
+                                                <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">In Stock</span>
+                                            </td>
+                                            <td class="px-4 py-3 text-sm">
+                                                <div class="flex space-x-2">
+                                                    <button class="text-blue-600 hover:text-blue-800">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                    <button class="text-red-600 hover:text-red-800">
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                    <button class="text-gray-600 hover:text-gray-800">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-4 py-3">
+                                                <div class="flex items-center">
+                                                    <img src="https://placehold.co/60x60?text=Product" alt="Product" class="w-10 h-10 rounded mr-3">
+                                                    <div>
+                                                        <p class="font-medium">Portable Bluetooth Speaker</p>
+                                                        <p class="text-xs text-gray-500">Electronics > Audio</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="px-4 py-3 text-sm">PBS-003</td>
+                                            <td class="px-4 py-3 text-sm">$49.99</td>
+                                            <td class="px-4 py-3 text-sm">3</td>
+                                            <td class="px-4 py-3 text-sm">
+                                                <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs">Low Stock</span>
+                                            </td>
+                                            <td class="px-4 py-3 text-sm">
+                                                <div class="flex space-x-2">
+                                                    <button class="text-blue-600 hover:text-blue-800">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                    <button class="text-red-600 hover:text-red-800">
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                    <button class="text-gray-600 hover:text-gray-800">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-4 py-3">
+                                                <div class="flex items-center">
+                                                    <img src="https://placehold.co/60x60?text=Product" alt="Product" class="w-10 h-10 rounded mr-3">
+                                                    <div>
+                                                        <p class="font-medium">Wireless Gaming Mouse</p>
+                                                        <p class="text-xs text-gray-500">Electronics > Accessories</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="px-4 py-3 text-sm">WGM-007</td>
+                                            <td class="px-4 py-3 text-sm">$59.99</td>
+                                            <td class="px-4 py-3 text-sm">0</td>
+                                            <td class="px-4 py-3 text-sm">
+                                                <span class="px-2 py-1 bg-red-100 text-red-800 rounded-full text-xs">Out of Stock</span>
+                                            </td>
+                                            <td class="px-4 py-3 text-sm">
+                                                <div class="flex space-x-2">
+                                                    <button class="text-blue-600 hover:text-blue-800">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                    <button class="text-red-600 hover:text-red-800">
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                    <button class="text-gray-600 hover:text-gray-800">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <!-- Pagination -->
+                            <div class="flex justify-between items-center mt-6">
+                                <p class="text-sm text-gray-600">Showing 1-4 of 86 products</p>
+                                <div class="flex space-x-1">
+                                    <button class="px-3 py-1 border rounded text-gray-600 hover:bg-gray-50">Previous</button>
+                                    <button class="px-3 py-1 border rounded bg-primary text-white">1</button>
+                                    <button class="px-3 py-1 border rounded text-gray-600 hover:bg-gray-50">2</button>
+                                    <button class="px-3 py-1 border rounded text-gray-600 hover:bg-gray-50">3</button>
+                                    <button class="px-3 py-1 border rounded text-gray-600 hover:bg-gray-50">Next</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Orders Content -->
+                    <div id="orders-content" class="dashboard-content hidden">
+                        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                            <div class="flex justify-between items-center mb-6">
+                                <h2 class="text-2xl font-bold">Orders</h2>
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-gray-600">Period:</span>
+                                    <select class="border rounded px-3 py-1 focus:outline-none focus:ring-2 focus:ring-primary">
+                                        <option>Last 7 days</option>
+                                        <option>Last 30 days</option>
+                                        <option>Last 90 days</option>
+                                        <option>This year</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <!-- Order Stats -->
+                            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
+                                <div class="bg-white border rounded-lg p-4 text-center">
+                                    <p class="text-gray-600 text-sm">Total Orders
+```I'll create all four pages for your Geco Mart e-commerce website. Let's start with the FAQs and Refund Policy pages, followed by the user and vendor dashboards.
+
+## 1. FAQs Page
+
+```html project="Geco Mart" file="faqs.html" type="html"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Asked Questions - Geco Mart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#166534', // medium dark green
+                        secondary: '#111827', // black
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <a href="index.html"><h1 class="text-2xl font-bold text-primary">Geco Mart</h1></a>
+                </div>
+                <div class="w-full md:w-1/3 mb-4 md:mb-0">
+                    <div class="relative">
+                        <input type="text" placeholder="Search products..." class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                        <button class="absolute right-2 top-2 text-gray-500">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="login.html" class="text-gray-700 hover:text-primary">
+                        <i class="fas fa-user"></i>
+                        <span class="ml-1 hidden md:inline">Account</span>
+                    </a>
+                    <a href="cart.html" class="text-gray-700 hover:text-primary relative">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="ml-1 hidden md:inline">Cart</span>
+                        <span class="absolute -top-2 -right-2 bg-primary text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-secondary text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap">
+                <button class="md:hidden w-full py-3 text-left px-4" id="menuToggle">
+                    <i class="fas fa-bars mr-2"></i> Menu
+                </button>
+                <div class="hidden md:flex md:flex-row w-full" id="mobileMenu">
+                    <a href="index.html" class="px-4 py-3 hover:bg-primary">Home</a>
+                    <a href="products.html" class="px-4 py-3 hover:bg-primary">Products</a>
+                    <a href="categories.html" class="px-4 py-3 hover:bg-primary">Categories</a>
+                    <a href="vendors.html" class="px-4 py-3 hover:bg-primary">Vendors</a>
+                    <a href="partners.html" class="px-4 py-3 hover:bg-primary">Partners</a>
+                    <a href="support.html" class="px-4 py-3 hover:bg-primary">Support</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="bg-white py-3 shadow-sm">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center text-sm">
+                <a href="index.html" class="text-gray-600 hover:text-primary">Home</a>
+                <span class="mx-2 text-gray-400">/</span>
+                <span class="text-primary">Frequently Asked Questions</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Hero Section -->
+    <section class="py-12 bg-gradient-to-r from-primary to-green-800 text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-4xl font-bold mb-4">Frequently Asked Questions</h1>
+                <p class="text-xl mb-8">Find answers to the most common questions about Geco Mart, our products, and services.</p>
+                <div class="relative max-w-xl mx-auto">
+                    <input type="text" id="faqSearch" placeholder="Search for answers..." class="w-full px-6 py-4 rounded-full focus:outline-none focus:ring-2 focus:ring-white text-gray-800">
+                    <button class="absolute right-3 top-3 bg-primary text-white p-2 rounded-full hover:bg-green-700 transition">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Categories -->
+    <section class="py-8 bg-white border-b">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="category-btn px-6 py-3 rounded-lg font-medium bg-primary text-white" data-category="all">All Questions</button>
+                <button class="category-btn px-6 py-3 rounded-lg font-medium bg-gray-200 hover:bg-gray-300" data-category="account">Account</button>
+                <button class="category-btn px-6 py-3 rounded-lg font-medium bg-gray-200 hover:bg-gray-300" data-category="orders">Orders & Shipping</button>
+                <button class="category-btn px-6 py-3 rounded-lg font-medium bg-gray-200 hover:bg-gray-300" data-category="returns">Returns & Refunds</button>
+                <button class="category-btn px-6 py-3 rounded-lg font-medium bg-gray-200 hover:bg-gray-300" data-category="payment">Payment</button>
+                <button class="category-btn px-6 py-3 rounded-lg font-medium bg-gray-200 hover:bg-gray-300" data-category="products">Products</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Content -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <!-- Account FAQs -->
+                <div class="faq-category mb-12" data-category="account">
+                    <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">Account Questions</h2>
+                    
+                    <div class="space-y-4">
+                        <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                                <span>How do I create an account?</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="px-6 py-4 border-t hidden">
+                                <p class="text-gray-600">To create an account on Geco Mart, click on the "Account" icon in the top right corner of the website and select "Register". Fill in your personal information, create a password, and agree to the terms and conditions. Once you've completed the registration form, click "Create Account" to finish the process. You'll receive a confirmation email to verify your account.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                                <span>How do I reset my password?</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="px-6 py-4 border-t hidden">
+                                <p class="text-gray-600">To reset your password, click on the "Account" icon in the top right corner of the website, then select "Login". On the login page, click "Forgot Password". Enter the email address associated with your account, and we'll send you a password reset link. Follow the instructions in the email to create a new password. If you don't receive the email, please check your spam folder or contact our support team for assistance.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                                <span>How can I update my account information?</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="px-6 py-4 border-t hidden">
+                                <p class="text-gray-600">To update your account information, log in to your account and navigate to the "Account Settings" or "Profile" section. Here, you can edit your personal information, change your password, update your shipping addresses, and manage your payment methods. After making changes, be sure to click "Save" or "Update" to confirm your changes.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                                <span>Can I have multiple shipping addresses?</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="px-6 py-4 border-t hidden">
+                                <p class="text-gray-600">Yes, you can save multiple shipping addresses in your account. To add a new address, log in to your account and go to the "Addresses" section. Click "Add New Address" and fill in the required information. You can designate one address as your default shipping address, which will be automatically selected during checkout. You can also edit or delete existing addresses as needed.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Orders & Shipping FAQs -->
+                <div class="faq-category mb-12" data-category="orders">
+                    <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">Orders & Shipping Questions</h2>
+                    
+                    <div class="space-y-4">
+                        <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                                <span>How do I track my order?</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="px-6 py-4 border-t hidden">
+                                <p class="text-gray-600">You can track your order by logging into your account and navigating to the "Orders" section. There, you'll find a list of all your orders and their current status. Click on the specific order to view detailed information, including the tracking number. You can use this tracking number on the carrier's website to get real-time updates on your package's location. Alternatively, you can use the tracking link provided in your shipping confirmation email.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                                <span>How long does shipping take?</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="px-6 py-4 border-t hidden">
+                                <p class="text-gray-600">Shipping times vary depending on your location and the shipping method selected at checkout:</p>
+                                <ul class="list-disc pl-6 mt-2 space-y-1">
+                                    <li>Standard Shipping: 3-7 business days within the continental United States</li>
+                                    <li>Expedited Shipping: 2-3 business days</li>
+                                    <li>Express Shipping: 1-2 business days</li>
+                                    <li>International Shipping: 7-21 business days, depending on the destination country and customs processing</li>
+                                </ul>
+                                <p class="mt-2 text-gray-600">Please note that these are estimated delivery times and may vary due to factors such as weather conditions, holidays, or customs delays.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                                <span>Can I change or cancel my order?</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="px-6 py-4 border-t hidden">
+                                <p class="text-gray-600">You can change or cancel your order only if it hasn't been processed for shipping yet. To request a change or cancellation, please contact our customer service team as soon as possible with your order number. Once an order has been processed or shipped, it cannot be changed or canceled. In such cases, you may need to return the item after receiving it according to our return policy.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                                <span>Do you ship internationally?</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="px-6 py-4 border-t hidden">
+                                <p class="text-gray-600">Yes, we ship to many countries worldwide. International shipping rates and delivery times vary depending on the destination. Please note that international orders may be subject to import duties, taxes, and customs clearance fees, which are the responsibility of the recipient. These charges are not included in the purchase price or shipping cost. Check our shipping policy for a list of countries we currently serve.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Returns & Refunds FAQs -->
+                <div class="faq-category mb-12" data-category="returns">
+                    <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">Returns & Refunds Questions</h2>
+                    
+                    <div class="space-y-4">
+                        <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                                <span>What is your return policy?</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="px-6 py-4 border-t hidden">
+                                <p class="text-gray-600">We offer a 30-day return policy for most products. To be eligible for a return, your item must be unused and in the same condition that you received it. It must also be in the original packaging. Some products, such as perishable goods, intimate items, and downloadable software, are not eligible for return. Please see our full <a href="refund-policy.html" class="text-primary hover:underline">Refund Policy</a> for more details.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                                <span>How do I return an item?</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="px-6 py-4 border-t hidden">
+                                <p class="text-gray-600">To return an item, follow these steps:</p>
+                                <ol class="list-decimal pl-6 mt-2 space-y-1">
+                                    <li>Log in to your account and go to the "Orders" section</li>
+                                    <li>Find the order containing the item you want to return</li>
+                                    <li>Click on "Return Item" and follow the instructions</li>
+                                    <li>Print the return shipping label (if provided)</li>
+                                    <li>Pack the item securely in its original packaging</li>
+                                    <li>Attach the return shipping label to the package</li>
+                                    <li>Drop off the package at the specified carrier location</li>
+                                </ol>
+                                <p class="mt-2 text-gray-600">Once we receive and inspect the returned item, we'll process your refund. Please allow 5-10 business days for the refund to appear in your account.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                                <span>How long does it take to process a refund?</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="px-6 py-4 border-t hidden">
+                                <p class="text-gray-600">Once we receive your returned item, it typically takes 1-3 business days to inspect the item and process your refund. After the refund is processed, it may take an additional 5-10 business days for the funds to appear in your account, depending on your payment method and financial institution. Credit card refunds usually appear faster than bank transfers or other payment methods.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                                <span>Do I have to pay for return shipping?</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="px-6 py-4 border-t hidden">
+                                <p class="text-gray-600">Return shipping costs depend on the reason for the return:</p>
+                                <ul class="list-disc pl-6 mt-2 space-y-1">
+                                    <li>If you're returning an item due to a defect, damage, or because we sent the wrong item, we'll cover the return shipping costs</li>
+                                    <li>If you're returning an item because you changed your mind, no longer need it, or for any other reason, you'll be responsible for the return shipping costs</li>
+                                </ul>
+                                <p class="mt-2 text-gray-600">In some cases, we may deduct the return shipping cost from your refund amount. For more details, please refer to our <a href="refund-policy.html" class="text-primary hover:underline">Refund Policy</a>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Payment FAQs -->
+                <div class="faq-category mb-12" data-category="payment">
+                    <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">Payment Questions</h2>
+                    
+                    <div class="space-y-4">
+                        <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                                <span>What payment methods do you accept?</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="px-6 py-4 border-t hidden">
+                                <p class="text-gray-600">We accept a variety of payment methods to make your shopping experience convenient. These include:</p>
+                                <ul class="list-disc pl-6 mt-2 space-y-1">
+                                    <li>Credit Cards (Visa, MasterCard, American Express, Discover)</li>
+                                    <li>Debit Cards</li>
+                                    <li>PayPal</li>
+                                    <li>Apple Pay</li>
+                                    <li>Google Pay</li>
+                                    <li>Shop Pay</li>
+                                    <li>Bank Transfers (for select countries)</li>
+                                </ul>
+                                <p class="mt-2 text-gray-600">For select items, we also offer financing options through our partner services. All payment information is securely processed and encrypted.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                                <span>Is it safe to use my credit card on your website?</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="px-6 py-4 border-t hidden">
+                                <p class="text-gray-600">Yes, it is safe to use your credit card on our website. We use industry-standard SSL (Secure Socket Layer) encryption to protect your personal and payment information. Our payment processing systems comply with PCI DSS (Payment Card Industry Data Security Standard) requirements. We do not store your full credit card details on our servers. Additionally, we work with trusted payment processors that have robust security measures in place.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                                <span>When will my credit card be charged?</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="px-6 py-4 border-t hidden">
+                                <p class="text-gray-600">Your credit card will be authorized when you place your order, but it will only be charged when your order is processed for shipping. If an item in your order is out of stock or there's a delay in processing your order, your card won't be charged until the item is ready to ship. For pre-orders or backorders, your card may be charged at the time of order placement or when the item ships, depending on the specific product and our current policy.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                                <span>Do you offer financing options?</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="px-6 py-4 border-t hidden">
+                                <p class="text-gray-600">Yes, we offer financing options for eligible purchases through our financing partners. During checkout, you may see options like "Buy Now, Pay Later" or installment plans if your purchase qualifies. These options allow you to split your payment into smaller amounts over time. Eligibility for financing is subject to approval by our financing partners and may require a credit check. Interest rates and terms vary depending on the financing option and your credit profile.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Products FAQs -->
+                <div class="faq-category mb-12" data-category="products">
+                    <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">Product Questions</h2>
+                    
+                    <div class="space-y-4">
+                        <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                                <span>How can I find product specifications?</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="px-6 py-4 border-t hidden">
+                                <p class="text-gray-600">Product specifications can be found on the individual product pages. Scroll down to the "Specifications" or "Technical Details" section to view detailed information about the product's dimensions, materials, features, and other relevant specifications. If you need additional information that isn't listed, you can contact our customer service team or use the "Ask a Question" feature on the product page.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                                <span>Are your products covered by warranty?</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="px-6 py-4 border-t hidden">
+                                <p class="text-gray-600">Many of our products come with manufacturer warranties. The warranty information, including coverage period and terms, can be found on the product page under the "Warranty" section. Some products may also include warranty cards or information in their packaging. If you have questions about a specific product's warranty or need to make a warranty claim, please contact our customer service team with your order number and product details.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                                <span>How do I know if a product is in stock?</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="px-6 py-4 border-t hidden">
+                                <p class="text-gray-600">Product availability is displayed on each product page. If a product is in stock, you'll see "In Stock" or the number of items available. If a product is out of stock, you'll see "Out of Stock" or "Temporarily Unavailable." For some out-of-stock items, you may have the option to sign up for email notifications when the product becomes available again. Our inventory is updated in real-time, so the availability information you see is current.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                                <span>Can I pre-order products that aren't released yet?</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="px-6 py-4 border-t hidden">
+                                <p class="text-gray-600">Yes, for certain upcoming products, we offer pre-orders. Products available for pre-order will be clearly marked with a "Pre-order" button instead of the standard "Add to Cart" button. The product page will also display the estimated release or shipping date. When you pre-order an item, your payment method may be authorized but not charged until the item ships, or you may be charged a deposit, depending on the specific product. Pre-ordered items are shipped on a first-come, first-served basis.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Still Have Questions -->
+                <div class="bg-gray-100 rounded-lg p-8 text-center">
+                    <h3 class="text-2xl font-bold mb-4">Still Have Questions?</h3>
+                    <p class="text-lg text-gray-600 mb-6">Our customer support team is here to help you with any questions or concerns you may have.</p>
+                    <a href="support.html" class="inline-block bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition">Contact Support</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Geco Mart</h3>
+                    <p class="text-gray-400 mb-4">Your one-stop shop for all your shopping needs.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="products.html" class="text-gray-400 hover:text-white">Products</a></li>
+                        <li><a href="categories.html" class="text-gray-400 hover:text-white">Categories</a></li>
+                        <li><a href="vendors.html" class="text-gray-400 hover:text-white">Vendors</a></li>
+                        <li><a href="support.html" class="text-gray-400 hover:text-white">Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Customer Service</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Contact Us</a></li>
+                        <li><a href="faqs.html" class="text-gray-400 hover:text-white">FAQs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Shipping Policy</a></li>
+                        <li><a href="refund-policy.html" class="text-gray-400 hover:text-white">Returns & Refunds</a></li>
+                        <li><a href="terms.html" class="text-gray-400 hover:text-white">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fas fa-map-marker-alt mr-2"></i> 123 Shopping St, Commerce City</li>
+                        <li><i class="fas fa-phone mr-2"></i> +1 234 567 8900</li>
+                        <li><i class="fas fa-envelope mr-2"></i> info@gecomart.com</li>
+                        <li><i class="fas fa-clock mr-2"></i> Mon-Fri: 9AM - 6PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Geco Mart. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // FAQ toggle function
+        function toggleFAQ(element) {
+            const content = element.nextElementSibling;
+            const icon = element.querySelector('i');
+            
+            content.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+        
+        // Category filter
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const faqCategories = document.querySelectorAll('.faq-category');
+        
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const category = this.getAttribute('data-category');
+                
+                // Update active button
+                categoryBtns.forEach(b => b.classList.remove('bg-primary', 'text-white'));
+                categoryBtns.forEach(b => b.classList.add('bg-gray-200', 'hover:bg-gray-300'));
+                this.classList.remove('bg-gray-200', 'hover:bg-gray-300');
+                this.classList.add('bg-primary', 'text-white');
+                
+                // Show/hide categories
+                if (category === 'all') {
+                    faqCategories.forEach(cat => cat.style.display = 'block');
+                } else {
+                    faqCategories.forEach(cat => {
+                        if (cat.getAttribute('data-category') === category) {
+                            cat.style.display = 'block';
+                        } else {
+                            cat.style.display = 'none';
+                        }
+                    });
+                }
+            });
+        });
+        
+        // Search functionality
+        const searchInput = document.getElementById('faqSearch');
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        searchInput.addEventListener('keyup', function() {
+            const searchTerm = this.value.toLowerCase();
+            
+            if (searchTerm.length > 2) {
+                // Show all categories for search
+                faqCategories.forEach(cat => cat.style.display = 'block');
+                
+                // Reset category buttons
+                categoryBtns.forEach(b => b.classList.remove('bg-primary', 'text-white'));
+                categoryBtns.forEach(b => b.classList.add('bg-gray-200', 'hover:bg-gray-300'));
+                document.querySelector('[data-category="all"]').classList.remove('bg-gray-200', 'hover:bg-gray-300');
+                document.querySelector('[data-category="all"]').classList.add('bg-primary', 'text-white');
+                
+                // Filter FAQ items
+                faqItems.forEach(item => {
+                    const question = item.querySelector('button span').textContent.toLowerCase();
+                    const answer = item.querySelector('.px-6.py-4.border-t').textContent.toLowerCase();
+                    
+                    if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                        item.style.display = 'block';
+                        // Expand matching items
+                        const content = item.querySelector('.px-6.py-4.border-t');
+                        const icon = item.querySelector('i');
+                        if (content.classList.contains('hidden')) {
+                            content.classList.remove('hidden');
+                            icon.classList.add('rotate-180');
+                        }
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            } else if (searchTerm.length === 0) {
+                // Reset display when search is cleared
+                faqItems.forEach(item => {
+                    item.style.display = 'block';
+                    const content = item.querySelector('.px-6.py-4.border-t');
+                    const icon = item.querySelector('i');
+                    content.classList.add('hidden');
+                    icon.classList.remove('rotate-180');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

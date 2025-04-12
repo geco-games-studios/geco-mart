@@ -1,0 +1,425 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Geco Mart - Your Products{% endblock %}
+
+{% block content %}
+    <!-- Breadcrumb -->
+    <div class="bg-white py-3 shadow-sm">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center text-sm">
+                <a href="index.html" class="text-gray-600 hover:text-primary">Home</a>
+                <span class="mx-2 text-gray-400">/</span>
+                <span class="text-primary">Frequently Asked Questions</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Hero Section -->
+    <section class="py-12 bg-gradient-to-r from-primary to-green-800 text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-4xl font-bold mb-4">Frequently Asked Questions</h1>
+                <p class="text-xl mb-8">Find answers to the most common questions about Geco Mart, our products, and services.</p>
+                <div class="relative max-w-xl mx-auto">
+                    <input type="text" id="faqSearch" placeholder="Search for answers..." class="w-full px-6 py-4 rounded-full focus:outline-none focus:ring-2 focus:ring-white text-gray-800">
+                    <button class="absolute right-3 top-3 bg-primary text-white p-2 rounded-full hover:bg-green-700 transition">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Categories -->
+    <section class="py-8 bg-white border-b">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="category-btn px-6 py-3 rounded-lg font-medium bg-primary text-white" data-category="all">All Questions</button>
+                <button class="category-btn px-6 py-3 rounded-lg font-medium bg-gray-200 hover:bg-gray-300" data-category="account">Account</button>
+                <button class="category-btn px-6 py-3 rounded-lg font-medium bg-gray-200 hover:bg-gray-300" data-category="orders">Orders & Shipping</button>
+                <button class="category-btn px-6 py-3 rounded-lg font-medium bg-gray-200 hover:bg-gray-300" data-category="returns">Returns & Refunds</button>
+                <button class="category-btn px-6 py-3 rounded-lg font-medium bg-gray-200 hover:bg-gray-300" data-category="payment">Payment</button>
+                <button class="category-btn px-6 py-3 rounded-lg font-medium bg-gray-200 hover:bg-gray-300" data-category="products">Products</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Content -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <!-- Account FAQs -->
+                <div class="faq-category mb-12" data-category="account">
+                    <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">Account Questions</h2>
+                    
+                    <div class="space-y-4">
+                        <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                                <span>How do I create an account?</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="px-6 py-4 border-t hidden">
+                                <p class="text-gray-600">To create an account on Geco Mart, click on the "Account" icon in the top right corner of the website and select "Register". Fill in your personal information, create a password, and agree to the terms and conditions. Once you've completed the registration form, click "Create Account" to finish the process. You'll receive a confirmation email to verify your account.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                                <span>How do I reset my password?</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="px-6 py-4 border-t hidden">
+                                <p class="text-gray-600">To reset your password, click on the "Account" icon in the top right corner of the website, then select "Login". On the login page, click "Forgot Password". Enter the email address associated with your account, and we'll send you a password reset link. Follow the instructions in the email to create a new password. If you don't receive the email, please check your spam folder or contact our support team for assistance.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                                <span>How can I update my account information?</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="px-6 py-4 border-t hidden">
+                                <p class="text-gray-600">To update your account information, log in to your account and navigate to the "Account Settings" or "Profile" section. Here, you can edit your personal information, change your password, update your shipping addresses, and manage your payment methods. After making changes, be sure to click "Save" or "Update" to confirm your changes.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                                <span>Can I have multiple shipping addresses?</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="px-6 py-4 border-t hidden">
+                                <p class="text-gray-600">Yes, you can save multiple shipping addresses in your account. To add a new address, log in to your account and go to the "Addresses" section. Click "Add New Address" and fill in the required information. You can designate one address as your default shipping address, which will be automatically selected during checkout. You can also edit or delete existing addresses as needed.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Orders & Shipping FAQs -->
+                <div class="faq-category mb-12" data-category="orders">
+                    <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">Orders & Shipping Questions</h2>
+                    
+                    <div class="space-y-4">
+                        <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                                <span>How do I track my order?</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="px-6 py-4 border-t hidden">
+                                <p class="text-gray-600">You can track your order by logging into your account and navigating to the "Orders" section. There, you'll find a list of all your orders and their current status. Click on the specific order to view detailed information, including the tracking number. You can use this tracking number on the carrier's website to get real-time updates on your package's location. Alternatively, you can use the tracking link provided in your shipping confirmation email.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                                <span>How long does shipping take?</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="px-6 py-4 border-t hidden">
+                                <p class="text-gray-600">Shipping times vary depending on your location and the shipping method selected at checkout:</p>
+                                <ul class="list-disc pl-6 mt-2 space-y-1">
+                                    <li>Standard Shipping: 3-7 business days within the continental United States</li>
+                                    <li>Expedited Shipping: 2-3 business days</li>
+                                    <li>Express Shipping: 1-2 business days</li>
+                                    <li>International Shipping: 7-21 business days, depending on the destination country and customs processing</li>
+                                </ul>
+                                <p class="mt-2 text-gray-600">Please note that these are estimated delivery times and may vary due to factors such as weather conditions, holidays, or customs delays.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                                <span>Can I change or cancel my order?</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="px-6 py-4 border-t hidden">
+                                <p class="text-gray-600">You can change or cancel your order only if it hasn't been processed for shipping yet. To request a change or cancellation, please contact our customer service team as soon as possible with your order number. Once an order has been processed or shipped, it cannot be changed or canceled. In such cases, you may need to return the item after receiving it according to our return policy.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                                <span>Do you ship internationally?</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="px-6 py-4 border-t hidden">
+                                <p class="text-gray-600">Yes, we ship to many countries worldwide. International shipping rates and delivery times vary depending on the destination. Please note that international orders may be subject to import duties, taxes, and customs clearance fees, which are the responsibility of the recipient. These charges are not included in the purchase price or shipping cost. Check our shipping policy for a list of countries we currently serve.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Returns & Refunds FAQs -->
+                <div class="faq-category mb-12" data-category="returns">
+                    <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">Returns & Refunds Questions</h2>
+                    
+                    <div class="space-y-4">
+                        <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                                <span>What is your return policy?</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="px-6 py-4 border-t hidden">
+                                <p class="text-gray-600">We offer a 30-day return policy for most products. To be eligible for a return, your item must be unused and in the same condition that you received it. It must also be in the original packaging. Some products, such as perishable goods, intimate items, and downloadable software, are not eligible for return. Please see our full <a href="refund-policy.html" class="text-primary hover:underline">Refund Policy</a> for more details.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                                <span>How do I return an item?</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="px-6 py-4 border-t hidden">
+                                <p class="text-gray-600">To return an item, follow these steps:</p>
+                                <ol class="list-decimal pl-6 mt-2 space-y-1">
+                                    <li>Log in to your account and go to the "Orders" section</li>
+                                    <li>Find the order containing the item you want to return</li>
+                                    <li>Click on "Return Item" and follow the instructions</li>
+                                    <li>Print the return shipping label (if provided)</li>
+                                    <li>Pack the item securely in its original packaging</li>
+                                    <li>Attach the return shipping label to the package</li>
+                                    <li>Drop off the package at the specified carrier location</li>
+                                </ol>
+                                <p class="mt-2 text-gray-600">Once we receive and inspect the returned item, we'll process your refund. Please allow 5-10 business days for the refund to appear in your account.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                                <span>How long does it take to process a refund?</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="px-6 py-4 border-t hidden">
+                                <p class="text-gray-600">Once we receive your returned item, it typically takes 1-3 business days to inspect the item and process your refund. After the refund is processed, it may take an additional 5-10 business days for the funds to appear in your account, depending on your payment method and financial institution. Credit card refunds usually appear faster than bank transfers or other payment methods.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                                <span>Do I have to pay for return shipping?</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="px-6 py-4 border-t hidden">
+                                <p class="text-gray-600">Return shipping costs depend on the reason for the return:</p>
+                                <ul class="list-disc pl-6 mt-2 space-y-1">
+                                    <li>If you're returning an item due to a defect, damage, or because we sent the wrong item, we'll cover the return shipping costs</li>
+                                    <li>If you're returning an item because you changed your mind, no longer need it, or for any other reason, you'll be responsible for the return shipping costs</li>
+                                </ul>
+                                <p class="mt-2 text-gray-600">In some cases, we may deduct the return shipping cost from your refund amount. For more details, please refer to our <a href="refund-policy.html" class="text-primary hover:underline">Refund Policy</a>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Payment FAQs -->
+                <div class="faq-category mb-12" data-category="payment">
+                    <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">Payment Questions</h2>
+                    
+                    <div class="space-y-4">
+                        <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                                <span>What payment methods do you accept?</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="px-6 py-4 border-t hidden">
+                                <p class="text-gray-600">We accept a variety of payment methods to make your shopping experience convenient. These include:</p>
+                                <ul class="list-disc pl-6 mt-2 space-y-1">
+                                    <li>Credit Cards (Visa, MasterCard, American Express, Discover)</li>
+                                    <li>Debit Cards</li>
+                                    <li>PayPal</li>
+                                    <li>Apple Pay</li>
+                                    <li>Google Pay</li>
+                                    <li>Shop Pay</li>
+                                    <li>Bank Transfers (for select countries)</li>
+                                </ul>
+                                <p class="mt-2 text-gray-600">For select items, we also offer financing options through our partner services. All payment information is securely processed and encrypted.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                                <span>Is it safe to use my credit card on your website?</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="px-6 py-4 border-t hidden">
+                                <p class="text-gray-600">Yes, it is safe to use your credit card on our website. We use industry-standard SSL (Secure Socket Layer) encryption to protect your personal and payment information. Our payment processing systems comply with PCI DSS (Payment Card Industry Data Security Standard) requirements. We do not store your full credit card details on our servers. Additionally, we work with trusted payment processors that have robust security measures in place.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                                <span>When will my credit card be charged?</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="px-6 py-4 border-t hidden">
+                                <p class="text-gray-600">Your credit card will be authorized when you place your order, but it will only be charged when your order is processed for shipping. If an item in your order is out of stock or there's a delay in processing your order, your card won't be charged until the item is ready to ship. For pre-orders or backorders, your card may be charged at the time of order placement or when the item ships, depending on the specific product and our current policy.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                                <span>Do you offer financing options?</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="px-6 py-4 border-t hidden">
+                                <p class="text-gray-600">Yes, we offer financing options for eligible purchases through our financing partners. During checkout, you may see options like "Buy Now, Pay Later" or installment plans if your purchase qualifies. These options allow you to split your payment into smaller amounts over time. Eligibility for financing is subject to approval by our financing partners and may require a credit check. Interest rates and terms vary depending on the financing option and your credit profile.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Products FAQs -->
+                <div class="faq-category mb-12" data-category="products">
+                    <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">Product Questions</h2>
+                    
+                    <div class="space-y-4">
+                        <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                                <span>How can I find product specifications?</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="px-6 py-4 border-t hidden">
+                                <p class="text-gray-600">Product specifications can be found on the individual product pages. Scroll down to the "Specifications" or "Technical Details" section to view detailed information about the product's dimensions, materials, features, and other relevant specifications. If you need additional information that isn't listed, you can contact our customer service team or use the "Ask a Question" feature on the product page.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                                <span>Are your products covered by warranty?</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="px-6 py-4 border-t hidden">
+                                <p class="text-gray-600">Many of our products come with manufacturer warranties. The warranty information, including coverage period and terms, can be found on the product page under the "Warranty" section. Some products may also include warranty cards or information in their packaging. If you have questions about a specific product's warranty or need to make a warranty claim, please contact our customer service team with your order number and product details.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                                <span>How do I know if a product is in stock?</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="px-6 py-4 border-t hidden">
+                                <p class="text-gray-600">Product availability is displayed on each product page. If a product is in stock, you'll see "In Stock" or the number of items available. If a product is out of stock, you'll see "Out of Stock" or "Temporarily Unavailable." For some out-of-stock items, you may have the option to sign up for email notifications when the product becomes available again. Our inventory is updated in real-time, so the availability information you see is current.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                                <span>Can I pre-order products that aren't released yet?</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="px-6 py-4 border-t hidden">
+                                <p class="text-gray-600">Yes, for certain upcoming products, we offer pre-orders. Products available for pre-order will be clearly marked with a "Pre-order" button instead of the standard "Add to Cart" button. The product page will also display the estimated release or shipping date. When you pre-order an item, your payment method may be authorized but not charged until the item ships, or you may be charged a deposit, depending on the specific product. Pre-ordered items are shipped on a first-come, first-served basis.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Still Have Questions -->
+                <div class="bg-gray-100 rounded-lg p-8 text-center">
+                    <h3 class="text-2xl font-bold mb-4">Still Have Questions?</h3>
+                    <p class="text-lg text-gray-600 mb-6">Our customer support team is here to help you with any questions or concerns you may have.</p>
+                    <a href="support.html" class="inline-block bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition">Contact Support</a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+    // Mobile menu toggle
+    document.getElementById('menuToggle').addEventListener('click', function() {
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenu.classList.toggle('hidden');
+    });
+    
+    // FAQ toggle function
+    function toggleFAQ(element) {
+        const content = element.nextElementSibling;
+        const icon = element.querySelector('i');
+        
+        content.classList.toggle('hidden');
+        icon.classList.toggle('rotate-180');
+    }
+    
+    // Category filter
+    const categoryBtns = document.querySelectorAll('.category-btn');
+    const faqCategories = document.querySelectorAll('.faq-category');
+    
+    categoryBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const category = this.getAttribute('data-category');
+            
+            // Update active button
+            categoryBtns.forEach(b => b.classList.remove('bg-primary', 'text-white'));
+            categoryBtns.forEach(b => b.classList.add('bg-gray-200', 'hover:bg-gray-300'));
+            this.classList.remove('bg-gray-200', 'hover:bg-gray-300');
+            this.classList.add('bg-primary', 'text-white');
+            
+            // Show/hide categories
+            if (category === 'all') {
+                faqCategories.forEach(cat => cat.style.display = 'block');
+            } else {
+                faqCategories.forEach(cat => {
+                    if (cat.getAttribute('data-category') === category) {
+                        cat.style.display = 'block';
+                    } else {
+                        cat.style.display = 'none';
+                    }
+                });
+            }
+        });
+    });
+    
+    // Search functionality
+    const searchInput = document.getElementById('faqSearch');
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    searchInput.addEventListener('keyup', function() {
+        const searchTerm = this.value.toLowerCase();
+        
+        if (searchTerm.length > 2) {
+            // Show all categories for search
+            faqCategories.forEach(cat => cat.style.display = 'block');
+            
+            // Reset category buttons
+            categoryBtns.forEach(b => b.classList.remove('bg-primary', 'text-white'));
+            categoryBtns.forEach(b => b.classList.add('bg-gray-200', 'hover:bg-gray-300'));
+            document.querySelector('[data-category="all"]').classList.remove('bg-gray-200', 'hover:bg-gray-300');
+            document.querySelector('[data-category="all"]').classList.add('bg-primary', 'text-white');
+            
+            // Filter FAQ items
+            faqItems.forEach(item => {
+                const question = item.querySelector('button span').textContent.toLowerCase();
+                const answer = item.querySelector('.px-6.py-4.border-t').textContent.toLowerCase();
+                
+                if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                    item.style.display = 'block';
+                    // Expand matching items
+                    const content = item.querySelector('.px-6.py-4.border-t');
+                    const icon = item.querySelector('i');
+                    if (content.classList.contains('hidden')) {
+                        content.classList.remove('hidden');
+                        icon.classList.add('rotate-180');
+                    }
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        } else if (searchTerm.length === 0) {
+            // Reset display when search is cleared
+            faqItems.forEach(item => {
+                item.style.display = 'block';
+                const content = item.querySelector('.px-6.py-4.border-t');
+                const icon = item.querySelector('i');
+                content.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            });
+        }
+    });
+</script>
+
+{% endblock scripts %}
